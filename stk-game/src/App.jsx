@@ -7,8 +7,25 @@ export default function App() {
   const [selectedCards, setSelectedCards] = useState([]);
 
   const handleCardClick = (clickedCard) => {
-    console.log("Carte sélectionnée :", clickedCard.name);
-    // On ajoutera la logique de comparaison ici à la prochaine étape
+    // Empêcher de cliquer sur la même carte deux fois ou si 2 cartes sont déjà sélectionnées
+    if (selectedCards.length === 2 || selectedCards.some((c) => c.id === clickedCard.id)) return;
+
+    const newSelection = [...selectedCards, clickedCard];
+    setSelectedCards(newSelection);
+
+    if (newSelection.length === 2) {
+      const [firstCard, secondCard] = newSelection;
+
+      if (firstCard.pairId === secondCard.pairId) {
+        console.log("SUCCÈS ! Lien biomimétique trouvé :", firstCard.pairId);
+        // Ici on déclenchera la modale pédagogique plus tard
+        setTimeout(() => setSelectedCards([]), 1000); // Réinitialise pour l'instant
+      } else {
+        console.log("ERREUR ! Aucun lien.");
+        // Ici on jouera le son d'erreur plus tard
+        setTimeout(() => setSelectedCards([]), 1000); // Réinitialise la sélection après 1s
+      }
+    }
   };
   return (
     <main className="stk-board">
