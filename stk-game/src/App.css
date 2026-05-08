@@ -25,3 +25,10 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
+.stk-card.matched {
+  background-color: #2c4c3b; /* Le vert forêt de STK */
+  color: white;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
