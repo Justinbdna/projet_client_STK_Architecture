@@ -6,6 +6,7 @@ import { useState } from 'react';
 export default function App() {
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState([]); // Mémoire des succès
+  const [modalText, setModalText] = useState(null);
 
   const handleCardClick = (clickedCard) => {
     // Bloquer si la carte est déjà trouvée, déjà sélectionnée, ou si 2 sont déjà en cours
@@ -21,7 +22,7 @@ export default function App() {
       if (first.pairId === second.pairId) {
         // SUCCÈS : On ajoute la paire à la mémoire
         setMatchedPairs([...matchedPairs, first.pairId]);
-        setSelectedCards([]);
+        setModalText(first.explanation);
       } else {
         // ERREUR : On vide après un court délai
         setTimeout(() => setSelectedCards([]), 1000);
@@ -29,6 +30,7 @@ export default function App() {
     }
   };
   return (
+    
     <main className="stk-board">
       {cardsData.map((card) => (
         <Card 
@@ -38,7 +40,16 @@ export default function App() {
           isSelected={selectedCards.some((c) => c.id === card.id)} 
           isMatched={matchedPairs.includes(card.pairId)} // Nouvelle info
         />
+        
       ))}
+      {modalText && (
+        <div className="stk-modal-overlay">
+          <div className="stk-modal-content">
+            <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>{modalText}</p>
+            <button className="stk-button" onClick={() => { setModalText(null); setSelectedCards([]); }}>Continuer</button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

@@ -32,3 +32,6 @@
   transform: none;
   box-shadow: none;
 }
+.stk-modal-overlay { position: fixed; inset: 0; background: rgba(246, 242, 236, 0.95); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.stk-modal-content { background: white; padding: 40px; border-radius: 15px; max-width: 450px; text-align: center; border: 1px solid #2c4c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.stk-button { background-color: #2c4c3b; color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-weight: 600; }

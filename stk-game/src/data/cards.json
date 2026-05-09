@@ -1,4 +1,4 @@
 [
-  { "id": 1, "type": "nature", "pairId": "tgv", "name": "Martin-pêcheur" },
-  { "id": 2, "type": "archi", "pairId": "tgv", "name": "TGV Japonais" }
+  { "id": 1, "type": "nature", "pairId": "tgv", "name": "Martin-pêcheur", "explanation": "Pour rendre le train plus discret sans perdre de vitesse, le TGV s'est inspiré de la forme aérodynamique du bec du martin-pêcheur." },
+  { "id": 2, "type": "archi", "pairId": "tgv", "name": "TGV Japonais", "explanation": "Pour rendre le train plus discret sans perdre de vitesse, le TGV s'est inspiré de la forme aérodynamique du bec du martin-pêcheur." }
 ]
