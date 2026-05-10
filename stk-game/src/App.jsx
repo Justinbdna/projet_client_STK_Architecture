@@ -3,6 +3,7 @@ import './App.css';
 import Card from './Card.jsx';
 import { useState } from 'react';
 import logoSTK from './assets/logo-stk-architecture.jpg';
+import { motion } from 'framer-motion';
 
 
 export default function App() {
@@ -40,7 +41,9 @@ export default function App() {
 
       {!gameStarted ? (
         <div className="stk-hero-section">
-          <h1 className="stk-hero-title"><span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span></h1>
+          <motion.h1 className="stk-hero-title" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span>
+          </motion.h1>
           <button className="stk-button-hero-large" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
         </div>
       ) : (
