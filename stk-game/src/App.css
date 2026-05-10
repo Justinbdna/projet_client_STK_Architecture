@@ -35,3 +35,8 @@
 .stk-modal-overlay { position: fixed; inset: 0; background: rgba(246, 242, 236, 0.95); display: flex; align-items: center; justify-content: center; z-index: 100; }
 .stk-modal-content { background: white; padding: 40px; border-radius: 15px; max-width: 450px; text-align: center; border: 1px solid #2c4c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .stk-button { background-color: #2c4c3b; color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.stk-hero-section { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 100vh; padding: 0 10vw; box-sizing: border-box; }
+.stk-hero-title { font-family: var(--font-sans); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; color: var(--text-primary); line-height: 1.05; margin-bottom: 40px; letter-spacing: -0.03em; }
+.stk-serif { font-family: var(--font-serif); font-style: italic; font-weight: 600; }
+.stk-button-hero { background-color: var(--text-primary); color: var(--bg-color); border: none; padding: 16px 32px; border-radius: 40px; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s; }
+.stk-button-hero:hover { transform: translateY(-3px); }

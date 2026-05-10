@@ -3,10 +3,12 @@ import './App.css';
 import Card from './Card.jsx';
 import { useState } from 'react';
 
+
 export default function App() {
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState([]); // Mémoire des succès
   const [modalText, setModalText] = useState(null);
+  const [gameStarted, setGameStarted] = useState(false);
 
   const handleCardClick = (clickedCard) => {
     // Bloquer si la carte est déjà trouvée, déjà sélectionnée, ou si 2 sont déjà en cours
@@ -29,6 +31,12 @@ export default function App() {
       }
     }
   };
+  if (!gameStarted) return (
+    <div className="stk-hero-section">
+      <h1 className="stk-hero-title"><span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span></h1>
+      <button className="stk-button-hero" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
+    </div>
+  );
   return (
     
     <main className="stk-board">
