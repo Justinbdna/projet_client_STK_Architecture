@@ -32,15 +32,6 @@ export default function App() {
       }
     }
   };
-  if (!gameStarted) return (
-    <>
- <div className="stk-header"><img src={logoSTK} alt="STK Logo" className="stk-logo" /></div>
-      <div className="stk-hero-section">
-        <h1 className="stk-hero-title"><span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span></h1>
-        <button className="stk-button-hero-large" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
-      </div>
-    </>
-  );
   return (
     <div className="app-container">
       <header className="stk-header">
