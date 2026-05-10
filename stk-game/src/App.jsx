@@ -42,18 +42,23 @@ export default function App() {
     </>
   );
   return (
-    
-    <main className="stk-board">
-      {cardsData.map((card) => (
-        <Card 
-          key={card.id} 
-          card={card} 
-          onClick={handleCardClick} 
-          isSelected={selectedCards.some((c) => c.id === card.id)} 
-          isMatched={matchedPairs.includes(card.pairId)} // Nouvelle info
-        />
-        
-      ))}
+    <div className="app-container">
+      <header className="stk-header">
+        <img src={logoSTK} alt="STK Logo" className="stk-logo" onClick={() => setGameStarted(false)} style={{ cursor: 'pointer' }} />
+      </header>
+
+      {!gameStarted ? (
+        <div className="stk-hero-section">
+          <h1 className="stk-hero-title"><span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span></h1>
+          <button className="stk-button-hero-large" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
+        </div>
+      ) : (
+        <main className="stk-board">
+          {cardsData.map((card) => (
+            <Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some((c) => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} />
+          ))}
+        </main>
+      )}
       {modalText && (
         <div className="stk-modal-overlay">
           <div className="stk-modal-content">
@@ -62,6 +67,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }

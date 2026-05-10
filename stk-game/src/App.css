@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 40px;
+  padding: 120px 40px 40px;
 }
 .stk-card {
   background-color: var(--card-bg);
@@ -40,8 +40,6 @@
 .stk-serif { font-family: var(--font-serif); font-style: italic; font-weight: 600; }
 .stk-button-hero { background-color: var(--text-primary); color: var(--bg-color); border: none; padding: 16px 32px; border-radius: 40px; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s; }
 .stk-button-hero:hover { transform: translateY(-3px); }
-/* Cache le logo pendant le jeu */
-.stk-board ~ .stk-header { display: none; }
 
 /* Nouveau bouton ultra grand */
 .stk-button-hero-large { background-color: var(--text-primary); color: var(--bg-color); border: none; padding: 30px 60px; border-radius: 50px; font-size: 1.8rem; font-weight: 700; cursor: pointer; margin-top: 50px; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
@@ -54,5 +52,8 @@
 }
 
 /* Header style pour le logo */
-.stk-header { position: fixed; top: 0; left: 0; padding: 20px 10vw; z-index: 10; width: 100%; box-sizing: border-box; }
+.stk-header { 
+  position: fixed; top: 0; left: 0; padding: 20px 10vw; z-index: 100; width: 100%; box-sizing: border-box;
+  background: rgba(246, 242, 236, 0.8); backdrop-filter: blur(5px);
+}
 .stk-logo { height: 40px; }
