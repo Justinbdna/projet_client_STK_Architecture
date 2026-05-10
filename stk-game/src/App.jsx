@@ -2,6 +2,7 @@ import cardsData from './data/cards.json';
 import './App.css';
 import Card from './Card.jsx';
 import { useState } from 'react';
+import logoSTK from './assets/logo-stk-architecture.jpg';
 
 
 export default function App() {
@@ -32,10 +33,13 @@ export default function App() {
     }
   };
   if (!gameStarted) return (
-    <div className="stk-hero-section">
-      <h1 className="stk-hero-title"><span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span></h1>
-      <button className="stk-button-hero" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
-    </div>
+    <>
+ <div className="stk-header"><img src={logoSTK} alt="STK Logo" className="stk-logo" /></div>
+      <div className="stk-hero-section">
+        <h1 className="stk-hero-title"><span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span></h1>
+        <button className="stk-button-hero-large" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
+      </div>
+    </>
   );
   return (
     
