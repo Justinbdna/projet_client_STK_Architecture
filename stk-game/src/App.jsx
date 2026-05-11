@@ -11,6 +11,11 @@ export default function App() {
   const [matchedPairs, setMatchedPairs] = useState([]); // Mémoire des succès
   const [modalText, setModalText] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
+  const [shuffledCards, setShuffledCards] = useState([]);
+// Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
+  const shuffleCards = (cardsArray) => {
+    return [...cardsArray].sort(() => Math.random() - 0.5);
+  };
 
   const handleCardClick = (clickedCard) => {
     // Bloquer si la carte est déjà trouvée, déjà sélectionnée, ou si 2 sont déjà en cours
@@ -44,11 +49,11 @@ export default function App() {
           <motion.h1 className="stk-hero-title" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span>
           </motion.h1>
-          <button className="stk-button-hero-large" onClick={() => setGameStarted(true)}>Découvrir l'expérience</button>
+          <button className="stk-button-hero-large" onClick={() => { setGameStarted(true); setShuffledCards(shuffleCards(cardsData)); }}>Découvrir l'expérience</button>
         </div>
       ) : (
         <main className="stk-board">
-          {cardsData.map((card) => (
+          {shuffledCards.map((card) => (
             <Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some((c) => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} />
           ))}
         </main>

@@ -1,4 +1,25 @@
 [
-  { "id": 1, "type": "nature", "pairId": "tgv", "name": "Martin-pêcheur", "explanation": "Pour rendre le train plus discret sans perdre de vitesse, le TGV s'est inspiré de la forme aérodynamique du bec du martin-pêcheur." },
-  { "id": 2, "type": "archi", "pairId": "tgv", "name": "TGV Japonais", "explanation": "Pour rendre le train plus discret sans perdre de vitesse, le TGV s'est inspiré de la forme aérodynamique du bec du martin-pêcheur." }
+  { "id": 1, "type": "nature", "pairId": "tgv", "name": "Martin-pêcheur", "explanation": "Pour supprimer le bruit du bang supersonique à la sortie des tunnels, le nez du TGV japonais a été calqué sur le bec du martin-pêcheur, qui plonge dans l'eau sans éclaboussures." },
+  { "id": 2, "type": "archi", "pairId": "tgv", "name": "TGV Japonais", "explanation": "Pour supprimer le bruit du bang supersonique à la sortie des tunnels, le nez du TGV japonais a été calqué sur le bec du martin-pêcheur, qui plonge dans l'eau sans éclaboussures." },
+  
+  { "id": 3, "type": "nature", "pairId": "termitiere", "name": "Termitière", "explanation": "Les termitières maintiennent une température constante malgré la chaleur extérieure grâce à un réseau de conduits d'aération naturels." },
+  { "id": 4, "type": "archi", "pairId": "termitiere", "name": "Eastgate Centre (Zimbabwe)", "explanation": "Ce bâtiment s'inspire des termitières africaines : il utilise la ventilation passive pour se rafraîchir, réduisant sa consommation d'énergie de 90%." },
+  
+  { "id": 5, "type": "nature", "pairId": "lotus", "name": "Feuille de Lotus", "explanation": "La surface de la feuille de lotus possède des micro-structures qui empêchent l'eau et la saleté d'y adhérer (l'effet lotus)." },
+  { "id": 6, "type": "archi", "pairId": "lotus", "name": "Peinture auto-nettoyante", "explanation": "S'inspirant de la feuille de lotus, les architectes utilisent des peintures et vitrages hydrofuges qui se nettoient tout seuls grâce à la pluie." },
+  
+  { "id": 7, "type": "nature", "pairId": "ours", "name": "Fourrure d'Ours Polaire", "explanation": "Les poils de l'ours polaire sont creux et translucides, captant la chaleur du soleil tout en offrant une isolation thermique parfaite." },
+  { "id": 8, "type": "archi", "pairId": "ours", "name": "Façade isolante", "explanation": "Certaines façades modernes intègrent des fibres creuses inspirées du pelage de l'ours, permettant de chauffer les bâtiments grâce à la lumière solaire." },
+  
+  { "id": 9, "type": "nature", "pairId": "eponge", "name": "Éponge de Mer (Euplectelle)", "explanation": "Son squelette en treillis de silice est d'une solidité et d'une flexibilité incroyables, lui permettant de résister aux forts courants marins." },
+  { "id": 10, "type": "archi", "pairId": "eponge", "name": "Gherkin (Londres)", "explanation": "La structure en treillis en diagonale du gratte-ciel londonien s'inspire de l'éponge de mer, offrant une résistance maximale aux vents avec un minimum de matériaux." },
+  
+  { "id": 11, "type": "nature", "pairId": "zebre", "name": "Rayures du Zèbre", "explanation": "L'alternance de bandes noires et blanches crée des micro-courants d'air qui aident le zèbre à réguler sa température corporelle." },
+  { "id": 12, "type": "archi", "pairId": "zebre", "name": "Bâtiment à rayures thermiques", "explanation": "Des façades au Japon utilisent des motifs contrastés inspirés du zèbre pour créer des courants d'air naturels et refroidir l'intérieur." },
+
+  { "id": 13, "type": "nature", "pairId": "papillon", "name": "Ailes de Papillon Morpho", "explanation": "Le bleu éclatant de ce papillon ne vient pas d'un pigment, mais de la structure microscopique de ses écailles qui reflète la lumière." },
+  { "id": 14, "type": "archi", "pairId": "papillon", "name": "Verre structurel coloré", "explanation": "Les architectes utilisent du verre sans pigment qui change de couleur selon l'angle de vue, s'inspirant des nanostructures des ailes de papillon." },
+  
+  { "id": 15, "type": "nature", "pairId": "pin", "name": "Pomme de Pin", "explanation": "Les écailles de la pomme de pin s'ouvrent ou se ferment automatiquement en fonction de l'humidité de l'air, sans avoir besoin d'énergie." },
+  { "id": 16, "type": "archi", "pairId": "pin", "name": "Pavillon Météorosensible", "explanation": "Des pavillons expérimentaux possèdent des façades en bois qui s'ouvrent et se ferment toutes seules en réaction à l'humidité de l'air." }
 ]
