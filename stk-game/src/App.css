@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 120px 40px 40px;
+  padding: 200px 40px 40px;
 }
 .stk-card {
   background-color: var(--card-bg);
