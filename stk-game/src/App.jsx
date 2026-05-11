@@ -38,6 +38,8 @@ export default function App() {
       }
     }
   };
+  // Vérifie si toutes les paires ont été trouvées
+  const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
   return (
     <div className="app-container">
       <header className="stk-header">
@@ -50,6 +52,11 @@ export default function App() {
             <span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span>
           </motion.h1>
           <button className="stk-button-hero-large" onClick={() => { setGameStarted(true); setShuffledCards(shuffleCards(cardsData)); }}>Découvrir l'expérience</button>
+        </div>
+      ) : isVictory ? (
+        <div className="stk-hero-section">
+          <h1 className="stk-hero-title"><span className="stk-serif">Félicitations</span><br/>Écosystème complété.</h1>
+          <button className="stk-button-hero-large" onClick={() => { setGameStarted(false); setMatchedPairs([]); }}>Retourner à l'accueil</button>
         </div>
       ) : (
         <main className="stk-board">
