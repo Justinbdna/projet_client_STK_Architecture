@@ -1,7 +1,7 @@
 import cardsData from './data/cards.json';
 import './App.css';
 import Card from './Card.jsx';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
 import { motion } from 'framer-motion';
