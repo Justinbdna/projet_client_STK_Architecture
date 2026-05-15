@@ -57,3 +57,12 @@
   background: rgba(246, 242, 236, 0.8); backdrop-filter: blur(5px);
 }
 .stk-logo { height: 40px; }
+/* Bouton Audio */
+.stk-audio-toggle {
+  position: absolute; right: 10vw; top: 25px;
+  background: transparent; border: 1px solid var(--text-primary);
+  color: var(--text-primary); padding: 5px 15px; border-radius: 20px;
+  font-family: var(--font-sans); font-size: 0.8rem; cursor: pointer;
+  transition: all 0.3s ease;
+}
+.stk-audio-toggle:hover { background: var(--text-primary); color: white; }
