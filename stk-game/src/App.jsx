@@ -99,6 +99,7 @@ export default function App() {
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
          <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
+         <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
         </div>
 
       ) : page === "intro" ? (
@@ -107,11 +108,7 @@ export default function App() {
         <div className="stk-hero-section">
           <h1 className="stk-hero-title"><span className="stk-serif">Félicitations</span><br/>Écosystème complété.</h1>
           <p style={{ fontSize: '1.2rem', marginBottom: '20px' }}>Temps record : {finalTime} secondes | Manches utilisées : {turns}/22</p>
-          <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
-         
-         <div className="stk-hero-image-container">
-           <img src={effetdessin} alt="Architecture" className="stk-hero-image" />
-         </div>
+          <button className="stk-button-hero-large" onClick={() => { setPage("home"); setMatchedPairs([]); }}>Retourner à l'accueil</button>
         </div>
       ) : (
         <main className="stk-board">
