@@ -76,9 +76,120 @@
 
 .stk-logo { height: 40px; }
 
-.stk-audio-toggle {
-  position: absolute; top: 25px; right: 5vw; background: transparent; border: 1px solid var(--text-primary, #222);
-  color: var(--text-primary, #222); padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; z-index: 200;
+/* --- LE MENU DÉROULANT AUDIO (SOUNDBOX DROPDOWN) --- */
+.stk-audio-menu-container {
+  position: absolute;
+  top: 22px;
+  right: 5vw;
+  z-index: 250;
+}
+
+.stk-audio-menu-btn {
+  background: #2c4c3b;
+  color: #f6f2ec;
+  border: 1px solid #2c4c3b;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(44, 76, 59, 0.15);
+  transition: all 0.25s ease;
+  min-width: 170px;
+  text-align: center;
+}
+
+.stk-audio-menu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(44, 76, 59, 0.25);
+  background: #223b2e;
+}
+
+.stk-audio-menu-btn.muted {
+  background: transparent;
+  color: #222121;
+  border-color: #222121;
+  box-shadow: none;
+}
+
+.stk-audio-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: rgba(246, 242, 236, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid #2c4c3b30;
+  border-radius: 16px;
+  width: 220px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-item {
+  background: transparent;
+  border: none;
+  color: #222121;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background: rgba(44, 76, 59, 0.08);
+  color: #2c4c3b;
+}
+
+.dropdown-item.active {
+  background: #2c4c3b;
+  color: #f6f2ec;
+  font-weight: 600;
+}
+
+.dropdown-item.toggle-audio {
+  background: #222121;
+  color: #f6f2ec;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.dropdown-item.toggle-audio:hover {
+  background: #333;
+  color: #fff;
+}
+
+.dropdown-item.toggle-audio.is-muted {
+  background: #d4af37;
+  color: #222121;
+}
+
+.dropdown-divider {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2c4c3b80;
+  font-weight: 700;
+  padding: 8px 14px 4px;
+  border-top: 1px solid #2c4c3b15;
+  margin-top: 4px;
+}
+
+@media (max-width: 960px) {
+  .stk-audio-menu-container { top: 15px; right: 4vw; }
+  .stk-audio-menu-btn { padding: 8px 14px; font-size: 0.8rem; min-width: 130px; }
+  .stk-audio-dropdown { width: 200px; }
 }
 
 /* --- MODALE (Origami 3D) --- */

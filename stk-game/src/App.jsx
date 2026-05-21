@@ -6,7 +6,9 @@ import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
 import erreurSound from './assets/erreur.mp3';
 import successSound from './assets/Succes.mp3';
-import { motion } from 'framer-motion';
+import windSound from './assets/wind.mp3';
+import rainSound from './assets/Rain_chills.mp3';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import image from './assets/image.png';
 import EndPage from './EndPage.jsx';
@@ -32,13 +34,28 @@ export default function App() {
   const [currentWave, setCurrentWave] = useState(0);
   const [hintsUsed, setHintsUsed] = useState(0);
   const [hintedCards, setHintedCards] = useState([]);
+  const windRef = useRef(null);
+  const rainRef = useRef(null);
+  const [activeTrack, setActiveTrack] = useState("birds"); // "birds" | "wind" | "rain"
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.3;
-      isMuted ? audioRef.current.pause() : audioRef.current.play();
+    if (audioRef.current && windRef.current && rainRef.current) {
+      audioRef.current.volume = 0.25;
+      windRef.current.volume = 0.35;
+      rainRef.current.volume = 0.25;
+
+      if (isMuted) {
+        audioRef.current.pause();
+        windRef.current.pause();
+        rainRef.current.pause();
+      } else {
+        activeTrack === "birds" ? audioRef.current.play().catch(() => {}) : audioRef.current.pause();
+        activeTrack === "wind" ? windRef.current.play().catch(() => {}) : windRef.current.pause();
+        activeTrack === "rain" ? rainRef.current.play().catch(() => {}) : rainRef.current.pause();
+      }
     }
-  }, [isMuted]);
+  }, [isMuted, activeTrack]);
 
 // Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
   const generateWaves = (data) => {
@@ -97,9 +114,58 @@ export default function App() {
           }}
           style={{ cursor: 'pointer' }}
         />
-        <button className="stk-audio-toggle" onClick={() => setIsMuted(!isMuted)}>
-          {isMuted ? "🔇 Audio Off" : "🔊 Audio On"}
-        </button>
+        <div className="stk-audio-menu-container">
+          <button 
+            className={`stk-audio-menu-btn ${isMuted ? 'muted' : ''}`}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {isMuted ? "🔇 Audio Off" : `🔊 Son : ${activeTrack === "birds" ? "Oiseaux" : activeTrack === "wind" ? "Vent" : "Pluie"}`}
+          </button>
+
+          <AnimatePresence>
+            {isDropdownOpen && (
+              <motion.div 
+                className="stk-audio-dropdown"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                <button 
+                  className={`dropdown-item toggle-audio ${isMuted ? 'is-muted' : ''}`}
+                  onClick={() => setIsMuted(!isMuted)}
+                >
+                  {isMuted ? "▶️ Activer le son" : "⏸️ Couper le son"}
+                </button>
+                
+                <div className="dropdown-divider">Ambiances</div>
+
+                <button 
+                  className={`dropdown-item ${activeTrack === "birds" && !isMuted ? "active" : ""}`}
+                  onClick={() => { setActiveTrack("birds"); setIsMuted(false); }}
+                >
+                  🐦 Oiseaux {activeTrack === "birds" && !isMuted && "✓"}
+                </button>
+
+                <button 
+                  className={`dropdown-item ${activeTrack === "wind" && !isMuted ? "active" : ""}`}
+                  onClick={() => { setActiveTrack("wind"); setIsMuted(false); }}
+                >
+                  💨 Vent {activeTrack === "wind" && !isMuted && "✓"}
+                </button>
+
+                <button 
+                  className={`dropdown-item ${activeTrack === "rain" && !isMuted ? "active" : ""}`}
+                  onClick={() => { setActiveTrack("rain"); setIsMuted(false); }}
+                >
+                  🌧️ Pluie {activeTrack === "rain" && !isMuted && "✓"}
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+<audio ref={windRef} src={windSound} loop />
+<audio ref={rainRef} src={rainSound} loop />
 
         <audio ref={audioRef} src={natureSound} loop />
         
