@@ -4,15 +4,14 @@ import Card from './Card.jsx';
 import IntroPage from './IntroPage.jsx';   // ← AJOUT : importer la nouvelle page 
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
+import erreurSound from './assets/erreur.mp3';
 import successSound from './assets/Succes.mp3';
-import failureSound from './assets/erreur.mp3';
-
+import failureSound from './assets/echec.mp3';
 // 1. AJOUTE L'IMPORT DE TON IMAGE ICI :
 
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import effetdessin from './assets/effetdessin.png';
-
 
 
 export default function App() {
@@ -26,6 +25,8 @@ export default function App() {
   const [shuffledCards, setShuffledCards] = useState([]);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
+  const successRef = useRef(null);
+  const errorRef = useRef(null);
   const [turns, setTurns] = useState(0);
   const [startTime, setStartTime] = useState(null);
   const [finalTime, setFinalTime] = useState(null);
