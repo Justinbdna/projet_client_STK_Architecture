@@ -69,7 +69,7 @@ export default function App() {
           ))}
         </main>
       )}
-
+      
       {modalText && (
         <div className="stk-modal-overlay">
           <div className="stk-modal-content">
