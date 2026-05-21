@@ -5,6 +5,24 @@ import avatarImg from './assets/Avatar.png';
 
 export default function EndPage({ finalTime, turns, onRestart, onHome }) {
   const introText = "Félicitations ! Vous avez brillamment complété l'écosystème.";
+  const handleShare = async () => {
+    // Note : On met (hintsUsed || 0) au cas où la valeur serait indéfinie
+    const shareText = `J'ai terminé le jeu STK Architecture en ${finalTime} secondes avec seulement ${hintsUsed || 0} indice(s) utilisé(s) ! 🌿 Peux-tu faire mieux ?`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mon score STK Architecture',
+          text: shareText,
+        });
+      } catch (error) {
+        console.log('Partage annulé ou échoué', error);
+      }
+    } else {
+      navigator.clipboard.writeText(shareText);
+      alert("Ton score a été copié dans le presse-papier ! Tu peux le coller sur tes réseaux sociaux.");
+    }
+  };
   
   const stats = [
     { num: "⏱", text: `Temps total : ${finalTime} secondes.` },
@@ -158,6 +176,11 @@ export default function EndPage({ finalTime, turns, onRestart, onHome }) {
                           <button className="bubble-btn-start" onClick={onRestart}>
                             Rejouer
                           </button>
+                          
+                          <button className="bubble-btn-start" onClick={handleShare} style={{ backgroundColor: '#2c4c3b' }}>
+                            📱 Partager
+                          </button>
+                          
                           <button className="bubble-btn-back" onClick={onHome}>
                             Accueil
                           </button>

@@ -158,6 +158,7 @@ export default function App() {
         <EndPage 
           finalTime={finalTime} 
           turns={turns} 
+          hintsUsed={hintsUsed}
           onRestart={() => {
             setMatchedPairs([]);
             setSelectedCards([]);
