@@ -3,33 +3,22 @@ import './App.css';
 import Card from './Card.jsx';
 import { useState, useRef, useEffect } from 'react';
 import logoSTK from './assets/logo-stk-architecture.jpg';
+import { motion } from 'framer-motion';import effetdessin from './assets/effetdessin.png'; 
 import natureSound from './assets/Bird_sounds.mp3';
-import { motion } from 'framer-motion';
 
 
 export default function App() {
   const [selectedCards, setSelectedCards] = useState([]);
-  const [matchedPairs, setMatchedPairs] = useState([]); // Mémoire des succès
+  const [matchedPairs, setMatchedPairs] = useState([]); 
   const [modalText, setModalText] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [shuffledCards, setShuffledCards] = useState([]);
-  const [isMuted, setIsMuted] = useState(true);
-  const audioRef = useRef(null);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.3;
-      isMuted ? audioRef.current.pause() : audioRef.current.play();
-    }
-  }, [isMuted]);
-
 // Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
   const shuffleCards = (cardsArray) => {
     return [...cardsArray].sort(() => Math.random() - 0.5);
   };
 
   const handleCardClick = (clickedCard) => {
-    // Bloquer si la carte est déjà trouvée, déjà sélectionnée, ou si 2 sont déjà en cours
     if (matchedPairs.includes(clickedCard.pairId) || 
         selectedCards.some(c => c.id === clickedCard.id) || 
         selectedCards.length === 2) return;
@@ -40,17 +29,16 @@ export default function App() {
     if (newSelection.length === 2) {
       const [first, second] = newSelection;
       if (first.pairId === second.pairId) {
-        // SUCCÈS : On ajoute la paire à la mémoire
         setMatchedPairs([...matchedPairs, first.pairId]);
         setModalText(first.explanation);
       } else {
-        // ERREUR : On vide après un court délai
         setTimeout(() => setSelectedCards([]), 1000);
       }
     }
   };
-  // Vérifie si toutes les paires ont été trouvées
+
   const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
+
   return (
     <div className="app-container">
       <header className="stk-header">
@@ -67,6 +55,11 @@ export default function App() {
             <span className="stk-serif">Architecture</span><br/>bioclimatique<br/>& <span className="stk-serif">écologique</span><br/><span className="stk-serif">par le jeu</span>
           </motion.h1>
           <button className="stk-button-hero-large" onClick={() => { setGameStarted(true); setShuffledCards(shuffleCards(cardsData)); }}>Découvrir l'expérience</button>
+          
+          {/* 2. AJOUTE L'IMAGE ICI JUSTE EN DESSOUS DU BOUTON : */}
+          <div className="stk-hero-image-container">
+            <img src={effetdessin} alt="Architecture éco-responsable" className="stk-hero-image" />
+          </div>
         </div>
       ) : isVictory ? (
         <div className="stk-hero-section">
@@ -80,6 +73,7 @@ export default function App() {
           ))}
         </main>
       )}
+
       {modalText && (
         <div className="stk-modal-overlay">
           <div className="stk-modal-content">

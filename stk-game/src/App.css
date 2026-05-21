@@ -1,71 +1,180 @@
+/* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   padding: 200px 40px 40px;
+  transform: scale(0.8); /* Dézoome légèrement le plateau */
+  transform-origin: top center; /* Pour que le dézoom reste centré en haut */
 }
-.stk-card { background-color: var(--card-bg, #fff); border-radius: 12px; padding: 10px; width: 150px; height: 200px; cursor: pointer; border: 2px solid transparent; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-.stk-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-.stk-card.selected { border-color: var(--accent-color, #2c4c3b); background-color: #e8f0eb; transform: translateY(-5px); }
-.stk-card.matched { background-color: #2c4c3b; color: white; cursor: default; transform: none; box-shadow: none; }
-
-.stk-card-front {
-  background-color: var(--card-bg, #fff);
-  border: 2px solid #e8e8e8;
+.stk-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  width: 150px;
+  height: 200px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.stk-card-back {
+.stk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+.stk-card.selected {
+  border: 2px solid var(--accent-color);
   background-color: #e8f0eb;
   transform: rotateY(180deg);
   border: 2px solid var(--accent-color, #2c4c3b);
 }
-.stk-card.matched .stk-card-back {
-  background-color: #2c4c3b;
+.stk-card.matched {
+  background-color: #2c4c3b; /* Le vert forêt de STK */
   color: white;
   border-color: #2c4c3b;
 }
-.stk-modal-overlay { position: fixed; inset: 0; background: rgba(246, 242, 236, 0.95); display: flex; align-items: center; justify-content: center; z-index: 100; }
-.stk-modal-content { background: white; padding: 40px; border-radius: 15px; max-width: 450px; text-align: center; border: 1px solid #2c4c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-.stk-button { background-color: #2c4c3b; color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-weight: 600; }
-.stk-hero-section { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 100vh; padding: 0 10vw; box-sizing: border-box; }
-.stk-hero-title { font-family: var(--font-sans); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; color: var(--text-primary); line-height: 1.05; margin-bottom: 40px; letter-spacing: -0.03em; }
-.stk-serif { font-family: var(--font-serif); font-style: italic; font-weight: 600; }
-.stk-button-hero { background-color: var(--text-primary); color: var(--bg-color); border: none; padding: 16px 32px; border-radius: 40px; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s; }
-.stk-button-hero:hover { transform: translateY(-3px); }
 
-/* Nouveau bouton ultra grand */
-.stk-button-hero-large { background-color: var(--text-primary); color: var(--bg-color); border: none; padding: 30px 60px; border-radius: 50px; font-size: 1.8rem; font-weight: 700; cursor: pointer; margin-top: 50px; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-.stk-button-hero-large:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-
-/* Effet dézoomé sur le plateau */
-.stk-board {
-  transform: scale(0.8); /* Dézoome légèrement le plateau */
-  transform-origin: top center; /* Pour que le dézoom reste centré en haut */
+/* --- ACCUEIL (HERO SECTION) --- */
+.stk-hero-section { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: flex-start; 
+  min-height: 100vh;         /* Conserve tes proportions d'origine */
+  padding: 140px 13vw 60px;  /* Conserve tes proportions d'origine */
+  margin: auto;
+  box-sizing: border-box; 
+  position: relative;        /* AJOUT CORRECTIF : Indispensable pour caler l'image au bon endroit */
+  overflow: hidden;          /* AJOUT CORRECTIF : Évite que l'image crée des barres de scroll */
 }
 
-/* Header style pour le logo */
+/* ==========================================================================
+   2. TRACE DE FOND (IMAGE EFFETDESSIN EN ARRIÈRE-PLAN)
+   ========================================================================== */
+
+.stk-hero-image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Conserve tes proportions d'origine */
+  width: 100vw; 
+  height: 100vh;                     /* Conserve tes proportions d'origine */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;                        /* Place l'image au premier niveau (le fond) */
+  pointer-events: none;              /* Permet de cliquer à travers l'image sans bloquer le bouton */
+}
+
+.stk-hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;               /* Conserve tes proportions d'origine */
+  transform: scale(0.9);             /* Conserve tes proportions d'origine (change à 1.4 ou plus si tu veux l'agrandir) */
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHIES & TEXTES (PREMIER PLAN)
+   ========================================================================== */
+
+.stk-hero-title { 
+  font-family: var(--font-sans); 
+  font-size: clamp(3rem, 6vw, 6rem); /* Conserve tes proportions d'origine */
+  font-weight: 700; 
+  color: var(--text-primary); 
+  line-height: 1.05; 
+  margin-bottom: 40px; 
+  letter-spacing: -0.03em; 
+  position: relative;                /* AJOUT CORRECTIF : Permet d'activer le z-index */
+  z-index: 2;                        /* AJOUT CORRECTIF : Force le texte à passer DEVANT l'image */
+}
+
+.stk-serif { 
+  font-family: var(--font-serif); 
+  font-style: italic; 
+  font-weight: 600; 
+}
+
+/* Bouton d'action principal */
+.stk-button-hero-large { 
+  background-color: var(--text-primary); 
+  color: var(--bg-color); 
+  border: none; 
+  padding: 30px 60px; 
+  border-radius: 50px; 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+  cursor: pointer; 
+  margin-top: 20px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+}
+
+
+/* --- BOUTONS --- */
+.stk-button { 
+  background-color: #2c4c3b; 
+  color: white; 
+  border: none; 
+  padding: 12px 28px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-weight: 600; 
+}
+
+.stk-button-hero { 
+  background-color: var(--text-primary); 
+  color: var(--bg-color); 
+  border: none; 
+  padding: 16px 32px; 
+  border-radius: 40px; 
+  font-size: 1.1rem; 
+  cursor: pointer; 
+  transition: transform 0.3s; 
+}
+
+.stk-button-hero:hover { 
+  transform: translateY(-3px); 
+}
+
+
+.stk-button-hero-large:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+}
+
+/* --- MODALE --- */
+.stk-modal-overlay { 
+  position: fixed; 
+  inset: 0; 
+  background: rgba(246, 242, 236, 0.95); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 100; 
+}
+
+.stk-modal-content { 
+  background: white; 
+  padding: 40px; 
+  border-radius: 15px; 
+  max-width: 450px; 
+  text-align: center; 
+  border: 1px solid #2c4c3b; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+}
+
+/* --- HEADER FIXE --- */
 .stk-header { 
-  position: fixed; top: 0; left: 0; padding: 20px 10vw; z-index: 100; width: 100%; box-sizing: border-box;
-  background: rgba(246, 242, 236, 0.8); backdrop-filter: blur(5px);
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  padding: 20px 10vw; 
+  z-index: 100; 
+  width: 100%; 
+  box-sizing: border-box;
+  background: rgba(246, 242, 236, 0.8);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 .stk-logo { height: 40px; }
-/* Bouton Audio */
-.stk-audio-toggle {
-  position: absolute; right: 10vw; top: 25px;
-  background: transparent; border: 1px solid var(--text-primary);
-  color: var(--text-primary); padding: 5px 15px; border-radius: 20px;
-  font-family: var(--font-sans); font-size: 0.8rem; cursor: pointer;
-  transition: all 0.3s ease;
-}
-.stk-audio-toggle:hover { background: var(--text-primary); color: white; }
-/* --- RESPONSIVE MOBILE --- */
-@media (max-width: 768px) {
-  .stk-board { padding: 120px 10px 20px; gap: 10px; }
-  .stk-card { width: 100px; height: 140px; padding: 10px; font-size: 0.8rem; }
-  .stk-hero-title { font-size: 2.5rem; }
-  .stk-button-hero-large { padding: 20px 40px; font-size: 1.2rem; margin-top: 30px; }
-  .stk-audio-toggle { top: 80px; right: 5vw; }
-  .stk-header { padding: 15px 5vw; }
-  .stk-logo { height: 30px; }
-  .stk-modal-content { padding: 20px; margin: 0 20px; }
-}
