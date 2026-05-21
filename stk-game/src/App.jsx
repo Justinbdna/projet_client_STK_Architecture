@@ -92,7 +92,6 @@ export default function App() {
           </motion.h1>
         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
         </div>
-
       ) : page === "intro" ? (
         <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); }} onBack={() => setPage("home")} />
       ) : isVictory ? (
