@@ -82,11 +82,12 @@ export default function App() {
         <button className="stk-audio-toggle" onClick={() => setIsMuted(!isMuted)}>
           {isMuted ? "🔇 Audio Off" : "🔊 Audio On"}
         </button>
+
         <audio ref={audioRef} src={natureSound} loop />
       </header>
 
       {/* ════════════════════════════════════════
-          PAGE 1 — Accueil (inchangée)
+          PAGE 1  — Accueil (inchangée)
           ════════════════════════════════════════ */}
       {page === "home" ? (
         <div className="stk-hero-section">
@@ -102,8 +103,9 @@ export default function App() {
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
-
+        <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
         </div>
+      
 
       ) : page === "intro" ? (
         <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); setStartTime(Date.now()); setTurns(0); }} onBack={() => setPage("home")} />
