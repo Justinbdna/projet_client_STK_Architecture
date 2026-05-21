@@ -23,6 +23,7 @@ export default function App() {
   const [turns, setTurns] = useState(0);
   const [startTime, setStartTime] = useState(null);
   const [finalTime, setFinalTime] = useState(null);
+  const [hintsUsed, setHintsUsed] = useState(0);
 
   useEffect(() => {
     if (audioRef.current) {
