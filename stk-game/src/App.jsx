@@ -126,7 +126,7 @@ export default function App() {
           style={{
             position: 'fixed',
             bottom: '20px',
-            right: '20px',
+            left: '20px',
             background: '#ff4444',
             color: 'white',
             padding: '10px 15px',
@@ -197,7 +197,11 @@ export default function App() {
 
       {modalText && (
         <div className="stk-modal-overlay">
-          <div className="stk-modal-content">
+          <motion.div 
+            className="stk-modal-content"
+            initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} 
+            transition={{ duration: 0.6, type: "spring", bounce: 0.4 }} style={{ transformOrigin: "top", perspective: 1000 }}
+          >
             <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>{modalText}</p>
             <button
               className="stk-button"
@@ -208,7 +212,7 @@ export default function App() {
             >
               Continuer
             </button>
-          </div>
+          </motion.div>
         </div>
       )}
     </div>

@@ -1,9 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import './EndPage.css';
 import avatarImg from './assets/Avatar.png';
 
-export default function EndPage({ finalTime, turns, onRestart, onHome }) {
+export default function EndPage({ finalTime, turns, hintsUsed, onRestart, onHome }) {
   const introText = "Félicitations ! Vous avez brillamment complété l'écosystème.";
   const handleShare = async () => {
     const shareText = `J'ai terminé le jeu STK Architecture en ${finalTime} secondes avec seulement ${hintsUsed || 0} indice(s) utilisé(s) ! 🌿 Peux-tu faire mieux ?`;

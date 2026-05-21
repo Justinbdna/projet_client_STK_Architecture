@@ -1,190 +1,258 @@
+/* ==========================================================================
+   STK ARCHITECTURE — FEUILLE DE STYLE GLOBALE (App.css)
+   ========================================================================== */
+
 /* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
   display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
-  max-width: 1100px; margin: 0 auto; padding: 160px 20px 40px;
+  max-width: 1100px; margin: 0 auto; 
+  padding: 140px 20px 40px; /* Espace en haut ajusté pour ne pas coller au menu mobile */
 }
+
 .stk-side {
-  display: grid; 
-  grid-template-columns: repeat(4, 120px); 
-  grid-template-rows: repeat(2, 160px); 
-  gap: 15px;
+  display: grid; grid-template-columns: repeat(4, 120px); grid-template-rows: repeat(2, 160px); gap: 15px;
 }
+
 .stk-card {
   background-color: var(--card-bg, #fff); border-radius: 12px; padding: 10px;
-  width: 140px; height: 190px; box-sizing: border-box;
-  cursor: pointer; border: 2px solid #e8e8e8;
+  width: 140px; height: 190px; box-sizing: border-box; cursor: pointer; border: 2px solid #e8e8e8;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease;
   display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
 }
-.stk-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-}
+
+.stk-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+
 .stk-card.selected {
-  border: 2px solid var(--accent-color);
-  background-color: #e8f0eb;
-  transform: rotateY(180deg);
-  border: 2px solid var(--accent-color, #2c4c3b);
-}
-.stk-card.matched {
-  background-color: #2c4c3b; /* Le vert forêt de STK */
-  color: white;
-  border-color: #2c4c3b;
+  border: 2px solid var(--accent-color); background-color: #e8f0eb;
+  transform: rotateY(180deg); border: 2px solid var(--accent-color, #2c4c3b);
 }
 
-/* --- ACCUEIL (HERO SECTION) --- */
-.stk-hero-section { 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: flex-start; 
-  min-height: 100vh;         /* Conserve tes proportions d'origine */
-  padding: 140px 13vw 60px;  /* Conserve tes proportions d'origine */
-  margin: auto;
-  box-sizing: border-box; 
-  position: relative;        /* AJOUT CORRECTIF : Indispensable pour caler l'image au bon endroit */
-  overflow: hidden;          /* AJOUT CORRECTIF : Évite que l'image crée des barres de scroll */
-}
+.stk-card.matched { background-color: #2c4c3b; color: white; border-color: #2c4c3b; }
 
-/* ==========================================================================
-   2. TRACE DE FOND (IMAGE EFFETDESSIN EN ARRIÈRE-PLAN)
-   ========================================================================== */
-
-.stk-hero-image-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Conserve tes proportions d'origine */
-  width: 100vw; 
-  height: 100vh;                     /* Conserve tes proportions d'origine */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;                        /* Place l'image au premier niveau (le fond) */
-  pointer-events: none;              /* Permet de cliquer à travers l'image sans bloquer le bouton */
-}
-
-.stk-hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;               /* Conserve tes proportions d'origine */
-  transform: scale(0.9);             /* Conserve tes proportions d'origine (change à 1.4 ou plus si tu veux l'agrandir) */
-}
-
-/* ==========================================================================
-  3. TYPOGRAPHIES & TEXTES (PREMIER PLAN)
-   ========================================================================== */
-
-.stk-hero-title { 
-  font-family: var(--font-sans); 
-  font-size: clamp(3rem, 6vw, 6rem); /* Conserve tes proportions d'origine */
-  font-weight: 700; 
-  color: var(--text-primary); 
-  line-height: 1.05; 
-  margin-bottom: 40px; 
-  letter-spacing: -0.03em; 
-  position: relative;                /* AJOUT CORRECTIF : Permet d'activer le z-index */
-  z-index: 2;                        /* AJOUT CORRECTIF : Force le texte à passer DEVANT l'image */
-}
-
-.stk-serif { 
-  font-family: var(--font-serif); 
-  font-style: italic; 
-  font-weight: 600; 
-}
-/* Bouton d'action principal */
-.stk-button-hero-large { 
-  background-color: var(--text-primary); 
-  color: var(--bg-color); 
-  border: none; 
-  padding: 30px 60px; 
-  border-radius: 50px; 
-  font-size: 1.8rem; 
-  font-weight: 700; 
-  cursor: pointer; 
-  margin-top: 20px; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
-}
-
-
-/* --- BOUTONS --- */
-.stk-button { 
-  background-color: #2c4c3b; 
-  color: white; 
-  border: none; 
-  padding: 12px 28px; 
-  border-radius: 8px; 
-  cursor: pointer; 
-  font-weight: 600; 
-}
-
-.stk-button-hero { 
-  background-color: var(--text-primary); 
-  color: var(--bg-color); 
-  border: none; 
-  padding: 16px 32px; 
-  border-radius: 40px; 
-  font-size: 1.1rem; 
-  cursor: pointer; 
-  transition: transform 0.3s; 
-}
-
-.stk-button-hero:hover { 
-  transform: translateY(-3px); 
-}
-
-
-.stk-button-hero-large:hover { 
-  transform: translateY(-5px); 
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
-}
-
-/* --- MODALE --- */
-.stk-modal-overlay { 
-  position: fixed; 
-  inset: 0; 
-  background: rgba(246, 242, 236, 0.95); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  z-index: 100; 
-}
-
-.stk-modal-content { 
-  background: white; 
-  padding: 40px; 
-  border-radius: 15px; 
-  max-width: 450px; 
-  text-align: center; 
-  border: 1px solid #2c4c3b; 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-}
-
-/* --- HEADER FIXE --- */
-.stk-header { 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  padding: 20px 10vw; 
-  z-index: 100; 
-  width: 100%; 
-  box-sizing: border-box;
-  background: rgba(246, 242, 236, 0.8);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-}
-.stk-logo { height: 40px; }
-.stk-audio-toggle {
-  position: absolute;
-  top: 25px;
-  right: 5vw;
-  background: transparent; border: 1px solid var(--text-primary, #222);
-  color: var(--text-primary, #222); padding: 8px 16px; border-radius: 20px;
-  cursor: pointer; transition: 0.3s; z-index: 200;
-}
 .stk-card.hinted { border: 3px solid #d4af37; animation: pulse-gold 0.8s infinite alternate; }
 @keyframes pulse-gold { 
   from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); } 
   to { box-shadow: 0 0 25px rgba(212, 175, 55, 0.9); } 
+}
+
+/* --- ACCUEIL (HERO SECTION) --- */
+.stk-hero-section { 
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; 
+  min-height: 100vh; padding: 140px 13vw 60px; margin: auto; box-sizing: border-box; 
+  position: relative; overflow: hidden;
+}
+
+.stk-hero-image-container {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+  width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;
+  z-index: 1; pointer-events: none;
+}
+
+.stk-hero-image { width: 100%; height: auto; object-fit: contain; transform: scale(0.9); }
+
+.stk-hero-title { 
+  font-family: var(--font-sans); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; 
+  color: var(--text-primary); line-height: 1.05; margin-bottom: 40px; letter-spacing: -0.03em; 
+  position: relative; z-index: 2;
+}
+
+.stk-serif { font-family: var(--font-serif); font-style: italic; font-weight: 600; }
+
+.stk-button-hero-large { 
+  background-color: var(--text-primary); color: var(--bg-color); border: none; 
+  padding: 30px 60px; border-radius: 50px; font-size: 1.8rem; font-weight: 700; 
+  cursor: pointer; margin-top: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+}
+
+.stk-button-hero-large:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+/* --- HEADER FIXE --- */
+.stk-header { 
+  position: fixed; top: 0; left: 0; padding: 20px 10vw; z-index: 100; width: 100%; 
+  box-sizing: border-box; background: rgba(246, 242, 236, 0.8);
+  -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
+}
+
+.stk-logo { height: 40px; }
+
+.stk-audio-toggle {
+  position: absolute; top: 25px; right: 5vw; background: transparent; border: 1px solid var(--text-primary, #222);
+  color: var(--text-primary, #222); padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; z-index: 200;
+}
+
+/* --- MODALE (Origami 3D) --- */
+.stk-modal-overlay { 
+  position: fixed; inset: 0; background: rgba(246, 242, 236, 0.95); 
+  display: flex; align-items: center; justify-content: center; z-index: 1000; 
+  perspective: 1200px; /* Obligatoire pour l'effet origami 3D */
+}
+
+.stk-modal-content { 
+  background: white; padding: 40px; border-radius: 15px; max-width: 450px; text-align: center; 
+  border: 1px solid #2c4c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+  backface-visibility: hidden; /* Empêche le scintillement du texte pendant le dépliage */
+}
+
+/* --- INTRO & END PAGE (Fusionnées & Centrées) --- */
+.intro-container {
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  padding: 80px 5vw 40px; /* Réduction du padding haut pour ne pas forcer le scroll */
+  box-sizing: border-box; 
+  gap: 30px; 
+  overflow: hidden;
+}
+
+.intro-avatar-zone { 
+  flex: 0 0 45%; 
+  display: flex; 
+  align-items: center; /* Centre l'avatar verticalement */
+  justify-content: center; 
+}
+
+.avatar-wrapper { 
+  width: 100%; 
+  max-width: 450px; /* Légèrement réduit pour équilibrer avec la bulle */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.avatar-img { 
+  width: 100%; 
+  height: auto; 
+  max-height: 80vh; /* Empêche l'image de déborder de l'écran */
+  object-fit: contain; 
+  object-position: center; /* Centre l'image */
+  display: block; 
+  filter: drop-shadow(0 16px 40px rgba(44, 76, 59, 0.12)); 
+}
+
+.intro-bubble-side { 
+  flex: 0 0 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-sizing: border-box; 
+}
+
+.speech-bubble {
+  position: relative; 
+  width: 100%; 
+  max-width: 520px; 
+  background: #f6f2ec; 
+  border: 2px solid #2c4c3b28; 
+  border-radius: 36px;
+  padding: 35px 40px; /* Padding légèrement réduit */
+  font-family: 'Inter', sans-serif; 
+  color: #222121;
+  box-shadow: 0 12px 48px rgba(44, 76, 59, 0.12), 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.cloud-dot { position: absolute; border-radius: 50%; background: white; border: 2px solid #2c4c3b28; }
+.cloud-dot-1 { width: 22px; height: 22px; left: -30px; top: 50%; transform: translateY(-50%); }
+.cloud-dot-2 { width: 14px; height: 14px; left: -48px; top: calc(50% + 10px); transform: translateY(-50%); }
+.cloud-dot-3 { width: 9px; height: 9px; left: -62px; top: calc(50% + 18px); transform: translateY(-50%); }
+
+.intro-badge {
+  display: inline-block; background: #2c4c3b; color: white; font-size: 0.75rem; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 700; padding: 7px 18px; border-radius: 20px; margin-bottom: 20px;
+}
+.intro-badge.gold { background: #d4af37; color: #222121; }
+
+/* TEXTES RÉTRÉCIS ICI */
+.bubble-text { 
+  font-family: 'Playfair Display', Georgia, serif; 
+  font-size: 1.1rem; /* Rétréci (était 1.25rem) */
+  font-style: italic; 
+  font-weight: 600; 
+  line-height: 1.6; 
+  color: #222121; 
+  margin: 0 0 20px 0; 
+  min-height: 70px; 
+}
+
+.bubble-cursor { display: inline-block; color: #2c4c3b; font-weight: 800; animation: blink 0.65s step-end infinite; margin-left: 2px; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.bubble-btn-howto {
+  display: inline-block; background: none; border: 2px solid #2c4c3b; color: #2c4c3b;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1rem; font-weight: 600;
+  padding: 10px 24px; border-radius: 40px; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.2s; 
+}
+.bubble-btn-howto:hover { background: #2c4c3b; color: white; transform: translateY(-2px); }
+
+.bubble-rules { margin-top: 5px; display: flex; flex-direction: column; gap: 14px; }
+.bubble-rule { display: flex; align-items: flex-start; gap: 14px; }
+.bubble-rule-num { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #2c4c3b; opacity: 0.55; line-height: 1; min-width: 30px; padding-top: 4px; }
+.bubble-rule p { 
+  font-family: 'Inter', sans-serif; 
+  font-size: 0.9rem; /* Rétréci (était 1rem) */
+  line-height: 1.5; 
+  color: #222121; 
+  margin: 0; 
+  font-weight: 500; 
+}
+
+.bubble-actions { display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 24px; padding-top: 20px; border-top: 1px solid #2c4c3b18; }
+
+.bubble-btn {
+  flex: 1; min-width: 140px; text-align: center; background-color: #222121; color: #f6f2ec; 
+  border: 2px solid #222121; padding: 14px 20px; border-radius: 50px; font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
+}
+.bubble-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); background-color: #f6f2ec; color: #222121; }
+
+.bubble-btn-back {
+  background: transparent; border: 2px solid #222121; color: #222121; padding: 14px 28px; border-radius: 50px;
+  font-family: 'Inter', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+}
+.bubble-btn-back:hover { background: #222121; color: #f6f2ec; }
+
+/* ══════════════════════════════════
+   RESPONSIVE MOBILE CORRIGÉ ET CENTRÉ
+   ══════════════════════════════════ */
+@media (max-width: 960px) {
+  .intro-container { 
+    flex-direction: column; 
+    padding: 90px 5vw 30px; /* Ajusté pour le header mobile */
+    align-items: center; 
+    justify-content: center; /* Centre tout parfaitement au milieu */
+    gap: 20px; 
+    min-height: 100vh;
+  }
+  
+  .intro-avatar-zone { 
+    flex: none; 
+    width: 100%; 
+    max-width: 180px; /* Plus petit sur mobile pour laisser la place à la bulle */
+    margin-bottom: 0px;
+  } 
+  
+  .avatar-img {
+    height: auto;
+    max-height: 25vh; /* Ne prendra jamais plus d'un quart de l'écran */
+  }
+
+  .intro-bubble-side { 
+    flex: none; 
+    width: 100%; 
+    padding: 0; 
+  }
+  
+  .cloud-dot { display: none; }
+  
+  .speech-bubble { padding: 25px 20px; }
+
+  .bubble-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .bubble-btn, .bubble-btn-back {
+    width: 100%; 
+  }
 }

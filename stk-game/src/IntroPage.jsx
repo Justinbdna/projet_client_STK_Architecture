@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import './IntroPage.css';
 import avatarImg from './assets/Avatar.png';
 
 const introText = "Bienvenue dans l'expérience STK Architecture ! Prêt à explorer les fondamentaux du design durable ?";
@@ -172,7 +171,7 @@ export default function IntroPage({ onStartGame, onBack }) {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4, delay: 0.2 }}
                         >
-                          <button className="bubble-btn-start" onClick={onStartGame}>
+                          <button className="bubble-btn" onClick={onStartGame}>
                             Commencer à jouer
                           </button>
                           <button className="bubble-btn-back" onClick={onBack}>
