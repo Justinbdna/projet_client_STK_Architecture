@@ -57,16 +57,10 @@
    BULLE GÉANTE
    ══════════════════════════════════ */
 .speech-bubble {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  background: white;
-  border: 2px solid #2c4c3b28;
-  border-radius: 36px;
-  padding: 40px 44px 44px;
-  box-shadow:
-    0 12px 48px rgba(44, 76, 59, 0.12),
-    0 3px 12px rgba(0, 0, 0, 0.06);
+  position: relative; width: 100%; max-width: 520px;
+  background: #f6f2ec; border: 2px solid #2c4c3b28; border-radius: 36px;
+  padding: 40px 44px 44px; font-family: 'Inter', sans-serif; color: #222121;
+  box-shadow: 0 12px 48px rgba(44, 76, 59, 0.12), 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* Queue nuage vers l'avatar (gauche) */
@@ -119,14 +113,9 @@
 
 /* Texte animé principal */
 .bubble-text {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.25rem;
-  font-style: italic;
-  font-weight: 500;
-  line-height: 1.75;
-  color: #1a1a1a;
-  margin: 0 0 28px 0;
-  min-height: 90px;
+  font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem;
+  font-style: italic; font-weight: 600; line-height: 1.75;
+  color: #222121; margin: 0 0 28px 0; min-height: 90px;
 }
 
 .bubble-cursor {
@@ -193,11 +182,8 @@
 }
 
 .bubble-rule p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #1a1a1a;
-  margin: 0;
-  font-weight: 500;
+  font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.6;
+  color: #222121; margin: 0; font-weight: 500;
 }
 
 /* ══════════════════════════════════
@@ -214,17 +200,10 @@
 }
 
 .bubble-btn-start {
-  background-color: #1a1a1a;
-  color: #f5f2eb;
-  border: none;
-  padding: 18px 40px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
+  background-color: #222121; color: #f6f2ec; border: none;
+  padding: 18px 40px; border-radius: 50px; font-family: 'Inter', sans-serif;
+  font-size: 1.1rem; font-weight: 700; cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-  letter-spacing: 0.01em;
 }
 
 .bubble-btn-start:hover {
@@ -233,20 +212,11 @@
 }
 
 .bubble-btn-back {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  color: #1a1a1a;
-  cursor: pointer;
-  opacity: 0.45;
-  transition: opacity 0.2s;
-  font-weight: 500;
-  padding: 8px 0;
+  background: transparent; border: 2px solid #222121; color: #222121;
+  padding: 16px 32px; border-radius: 50px; font-family: 'Inter', sans-serif;
+  font-weight: 600; cursor: pointer; transition: all 0.3s ease;
 }
-
-.bubble-btn-back:hover {
-  opacity: 1;
-}
+.bubble-btn-back:hover { background: #222121; color: #f6f2ec; }
 
 /* ══════════════════════════════════
    RESPONSIVE
