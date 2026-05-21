@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 
 
+
 export default function App() {
   // ── MODIFIÉ : on remplace gameStarted (boolean) par page (string) ──
   // 3 valeurs possibles : "home" | "intro" | "game"
@@ -55,7 +56,7 @@ export default function App() {
   const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
   return (
     <div className="app-container">
-     <header className="stk-header">
+    <header className="stk-header">
         <img
           src={logoSTK}
           alt="STK Logo"
@@ -89,7 +90,7 @@ export default function App() {
             & <span className="stk-serif">écologique</span><br />
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
-         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
+        <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
         </div>
 
       ) : page === "intro" ? (
