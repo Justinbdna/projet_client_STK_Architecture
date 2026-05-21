@@ -5,7 +5,7 @@ import IntroPage from './IntroPage.jsx';   // ← AJOUT : importer la nouvelle p
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
 import successSound from './assets/Succes.mp3';
-import failureSound from './assets/echec.mp3';
+import failureSound from './assets/erreur.mp3';
 
 // 1. AJOUTE L'IMPORT DE TON IMAGE ICI :
 
