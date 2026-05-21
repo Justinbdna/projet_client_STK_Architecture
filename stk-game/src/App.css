@@ -1,6 +1,7 @@
 /* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
-  display: flex; gap: 40px; justify-content: center; padding: 160px 20px 40px;
+  display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+  max-width: 1100px; margin: 0 auto; padding: 160px 20px 40px;
 }
 .stk-side {
   display: grid; 
