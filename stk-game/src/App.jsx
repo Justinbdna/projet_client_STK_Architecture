@@ -1,11 +1,11 @@
 import cardsData from './data/cards.json';
 import './App.css';
 import Card from './Card.jsx';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import logoSTK from './assets/logo-stk-architecture.jpg';
-// 1. AJOUTE L'IMPORT DE TON IMAGE ICI :
-import effetdessin from './assets/effetdessin.png'; 
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';import effetdessin from './assets/effetdessin.png'; 
+import natureSound from './assets/Bird_sounds.mp3';
+
 
 export default function App() {
   const [selectedCards, setSelectedCards] = useState([]);
@@ -13,7 +13,12 @@ export default function App() {
   const [modalText, setModalText] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [shuffledCards, setShuffledCards] = useState([]);
-
+  const [isMuted, setIsMuted] = useState(true);
+  const audioRef = useRef(null);
+  useEffect(() => {
+    if (audioRef.current) isMuted ? audioRef.current.pause() : audioRef.current.play();
+  }, [isMuted]);
+// Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
   const shuffleCards = (cardsArray) => {
     return [...cardsArray].sort(() => Math.random() - 0.5);
   };
@@ -43,6 +48,10 @@ export default function App() {
     <div className="app-container">
       <header className="stk-header">
         <img src={logoSTK} alt="STK Logo" className="stk-logo" onClick={() => setGameStarted(false)} style={{ cursor: 'pointer' }} />
+        <button className="stk-audio-toggle" onClick={() => setIsMuted(!isMuted)}>
+          {isMuted ? "🔇 Audio Off" : "🔊 Audio On"}
+        </button>
+        <audio ref={audioRef} src={natureSound} loop />
       </header>
 
       {!gameStarted ? (
@@ -64,9 +73,8 @@ export default function App() {
         </div>
       ) : (
         <main className="stk-board">
-          {shuffledCards.map((card) => (
-            <Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some((c) => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} />
-          ))}
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'archi').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'nature').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
         </main>
       )}
       
