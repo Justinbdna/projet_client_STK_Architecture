@@ -5,32 +5,24 @@
   justify-content: center;
   padding: 200px 40px 40px;
 }
-.stk-card {
-  background-color: var(--card-bg);
-  border-radius: 12px;
-  padding: 20px;
-  width: 150px;
-  height: 200px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.stk-card { background-color: var(--card-bg, #fff); border-radius: 12px; padding: 10px; width: 150px; height: 200px; cursor: pointer; border: 2px solid transparent; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+.stk-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+.stk-card.selected { border-color: var(--accent-color, #2c4c3b); background-color: #e8f0eb; transform: translateY(-5px); }
+.stk-card.matched { background-color: #2c4c3b; color: white; cursor: default; transform: none; box-shadow: none; }
+
+.stk-card-front {
+  background-color: var(--card-bg, #fff);
+  border: 2px solid #e8e8e8;
 }
-.stk-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-}
-.stk-card.selected {
-  border: 2px solid var(--accent-color);
+.stk-card-back {
   background-color: #e8f0eb;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  transform: rotateY(180deg);
+  border: 2px solid var(--accent-color, #2c4c3b);
 }
-.stk-card.matched {
-  background-color: #2c4c3b; /* Le vert forêt de STK */
+.stk-card.matched .stk-card-back {
+  background-color: #2c4c3b;
   color: white;
-  cursor: default;
-  transform: none;
-  box-shadow: none;
+  border-color: #2c4c3b;
 }
 .stk-modal-overlay { position: fixed; inset: 0; background: rgba(246, 242, 236, 0.95); display: flex; align-items: center; justify-content: center; z-index: 100; }
 .stk-modal-content { background: white; padding: 40px; border-radius: 15px; max-width: 450px; text-align: center; border: 1px solid #2c4c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
@@ -57,3 +49,23 @@
   background: rgba(246, 242, 236, 0.8); backdrop-filter: blur(5px);
 }
 .stk-logo { height: 40px; }
+/* Bouton Audio */
+.stk-audio-toggle {
+  position: absolute; right: 10vw; top: 25px;
+  background: transparent; border: 1px solid var(--text-primary);
+  color: var(--text-primary); padding: 5px 15px; border-radius: 20px;
+  font-family: var(--font-sans); font-size: 0.8rem; cursor: pointer;
+  transition: all 0.3s ease;
+}
+.stk-audio-toggle:hover { background: var(--text-primary); color: white; }
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .stk-board { padding: 120px 10px 20px; gap: 10px; }
+  .stk-card { width: 100px; height: 140px; padding: 10px; font-size: 0.8rem; }
+  .stk-hero-title { font-size: 2.5rem; }
+  .stk-button-hero-large { padding: 20px 40px; font-size: 1.2rem; margin-top: 30px; }
+  .stk-audio-toggle { top: 80px; right: 5vw; }
+  .stk-header { padding: 15px 5vw; }
+  .stk-logo { height: 30px; }
+  .stk-modal-content { padding: 20px; margin: 0 20px; }
+}
