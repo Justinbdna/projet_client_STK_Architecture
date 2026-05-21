@@ -75,9 +75,8 @@ export default function App() {
         </div>
       ) : (
         <main className="stk-board">
-          {shuffledCards.map((card, index) => (
-            <Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some((c) => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} index={index} />
-          ))}
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'archi').map((card, i) => (<Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some(c => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} index={i} />))}</div>
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'nature').map((card, i) => (<Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some(c => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} index={i} />))}</div>
         </main>
       )}
       {modalText && (

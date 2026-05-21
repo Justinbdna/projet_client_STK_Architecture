@@ -1,9 +1,12 @@
 .stk-board {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 200px 40px 40px;
+  display: flex; gap: 80px; justify-content: center; padding: 160px 40px 40px;
+}
+
+.stk-side {
+  display: grid; 
+  grid-template-columns: repeat(4, 120px); 
+  grid-template-rows: repeat(2, 160px); 
+  gap: 15px;
 }
 .stk-card { background-color: var(--card-bg, #fff); border-radius: 12px; padding: 10px; width: 150px; height: 200px; cursor: pointer; border: 2px solid transparent; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease; }
 .stk-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
@@ -60,7 +63,8 @@
 .stk-audio-toggle:hover { background: var(--text-primary); color: white; }
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-  .stk-board { padding: 120px 10px 20px; gap: 10px; }
+  .stk-board { flex-direction: column; align-items: center; gap: 40px; padding-top: 120px; }
+  .stk-side { grid-template-columns: repeat(4, 75px); grid-template-rows: repeat(2, 110px); gap: 5px; }
   .stk-card { width: 100px; height: 140px; padding: 10px; font-size: 0.8rem; }
   .stk-hero-title { font-size: 2.5rem; }
   .stk-button-hero-large { padding: 20px 40px; font-size: 1.2rem; margin-top: 30px; }
