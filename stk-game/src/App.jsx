@@ -4,6 +4,8 @@ import Card from './Card.jsx';
 import IntroPage from './IntroPage.jsx';   // ← AJOUT : importer la nouvelle page 
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
+// 1. AJOUTE L'IMPORT DE TON IMAGE ICI :
+
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 
@@ -91,7 +93,9 @@ export default function App() {
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
+
         </div>
+
       ) : page === "intro" ? (
         <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); }} onBack={() => setPage("home")} />
       ) : isVictory ? (
