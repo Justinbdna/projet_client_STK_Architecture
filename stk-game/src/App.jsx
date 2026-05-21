@@ -101,13 +101,8 @@ export default function App() {
             & <span className="stk-serif">écologique</span><br />
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
-<<<<<<< HEAD
         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
 
-=======
-         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
-         <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
->>>>>>> a6ee5c761399d137f8cf96ff409536cd3e59000b
         </div>
 
       ) : page === "intro" ? (
