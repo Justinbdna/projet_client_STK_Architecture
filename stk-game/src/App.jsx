@@ -23,6 +23,7 @@ export default function App() {
   const [turns, setTurns] = useState(0);
   const [startTime, setStartTime] = useState(null);
   const [finalTime, setFinalTime] = useState(null);
+  const [currentWave, setCurrentWave] = useState(0);
   const [hintsUsed, setHintsUsed] = useState(0);
 
   useEffect(() => {
@@ -33,12 +34,12 @@ export default function App() {
   }, [isMuted]);
 
 // Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
-  const shuffleCards = (cardsArray) => {
-    return [...cardsArray].sort(() => Math.random() - 0.5);
+  const generateWaves = (data) => {
+    const pairs = Array.from({length: data.length/2}, (_, i) => [data[i*2], data[i*2+1]]).sort(() => Math.random() - 0.5);
+    return [pairs.slice(0, 7).flat(), pairs.slice(7, 14).flat(), pairs.slice(14, 22).flat()].map(w => w.sort(() => Math.random() - 0.5));
   };
 
   const handleCardClick = (clickedCard) => {
-    // Bloquer si la carte est déjà trouvée, déjà sélectionnée, ou si 2 sont déjà en cours
     if (matchedPairs.includes(clickedCard.pairId) || 
         selectedCards.some(c => c.id === clickedCard.id) || 
         selectedCards.length === 2) return;
@@ -53,9 +54,9 @@ export default function App() {
       if (first.pairId === second.pairId) {
         setMatchedPairs([...matchedPairs, first.pairId]);
         setModalText(first.explanation);
-        if (matchedPairs.length + 1 === cardsData.length / 2) {
-          setFinalTime(Math.floor((Date.now() - startTime) / 1000));
-        }
+        const total = matchedPairs.length + 1;
+        if (total === 7 || total === 14) setCurrentWave(w => w + 1);
+        if (total === 22) setFinalTime(Math.floor((Date.now() - startTime) / 1000));
       } else {
         setTimeout(() => setSelectedCards([]), 1000);
       }
@@ -104,7 +105,7 @@ export default function App() {
         </div>
 
       ) : page === "intro" ? (
-        <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); setStartTime(Date.now()); setTurns(0); }} onBack={() => setPage("home")} />
+        <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(generateWaves(cardsData)); setStartTime(Date.now()); setTurns(0); setCurrentWave(0); setHintsUsed(0); }} onBack={() => setPage("home")} />
       ) : isVictory ? (
         <div className="stk-hero-section">
           <h1 className="stk-hero-title"><span className="stk-serif">Félicitations</span><br/>Écosystème complété.</h1>
@@ -113,8 +114,9 @@ export default function App() {
         </div>
       ) : (
         <main className="stk-board">
-          <div className="stk-side">{shuffledCards.filter(c => c.type === 'archi').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
-          <div className="stk-side">{shuffledCards.filter(c => c.type === 'nature').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
+          {shuffledCards[currentWave]?.map((c, i) => (
+            <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />
+          ))}
         </main>
       )}
       {modalText && (
