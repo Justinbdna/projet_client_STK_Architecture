@@ -8,6 +8,7 @@ import natureSound from './assets/Bird_sounds.mp3';
 
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
+import effetdessin from './assets/effetdessin.png';
 
 
 
@@ -22,6 +23,9 @@ export default function App() {
   const [shuffledCards, setShuffledCards] = useState([]);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
+  const [turns, setTurns] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [finalTime, setFinalTime] = useState(null);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -46,9 +50,14 @@ export default function App() {
 
     if (newSelection.length === 2) {
       const [first, second] = newSelection;
+      setTurns(prev => prev + 1);
+      
       if (first.pairId === second.pairId) {
         setMatchedPairs([...matchedPairs, first.pairId]);
         setModalText(first.explanation);
+        if (matchedPairs.length + 1 === cardsData.length / 2) {
+          setFinalTime(Math.floor((Date.now() - startTime) / 1000));
+        }
       } else {
         setTimeout(() => setSelectedCards([]), 1000);
       }
@@ -75,7 +84,7 @@ export default function App() {
         </button>
         <audio ref={audioRef} src={natureSound} loop />
       </header>
-      
+
       {/* ════════════════════════════════════════
           PAGE 1 — Accueil (inchangée)
           ════════════════════════════════════════ */}
@@ -92,15 +101,21 @@ export default function App() {
             & <span className="stk-serif">écologique</span><br />
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
+<<<<<<< HEAD
         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
 
+=======
+         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
+         <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
+>>>>>>> a6ee5c761399d137f8cf96ff409536cd3e59000b
         </div>
 
       ) : page === "intro" ? (
-        <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); }} onBack={() => setPage("home")} />
+        <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); setStartTime(Date.now()); setTurns(0); }} onBack={() => setPage("home")} />
       ) : isVictory ? (
         <div className="stk-hero-section">
           <h1 className="stk-hero-title"><span className="stk-serif">Félicitations</span><br/>Écosystème complété.</h1>
+          <p style={{ fontSize: '1.2rem', marginBottom: '20px' }}>Temps record : {finalTime} secondes | Manches utilisées : {turns}/22</p>
           <button className="stk-button-hero-large" onClick={() => { setPage("home"); setMatchedPairs([]); }}>Retourner à l'accueil</button>
         </div>
       ) : (
