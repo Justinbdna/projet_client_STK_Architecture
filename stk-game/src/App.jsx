@@ -31,6 +31,7 @@ export default function App() {
   const [finalTime, setFinalTime] = useState(null);
   const [currentWave, setCurrentWave] = useState(0);
   const [hintsUsed, setHintsUsed] = useState(0);
+  const [hintedCards, setHintedCards] = useState([]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -43,6 +44,12 @@ export default function App() {
   const generateWaves = (data) => {
     const pairs = Array.from({length: data.length/2}, (_, i) => [data[i*2], data[i*2+1]]).sort(() => Math.random() - 0.5);
     return [pairs.slice(0, 7).flat(), pairs.slice(7, 14).flat(), pairs.slice(14, 22).flat()].map(w => w.sort(() => Math.random() - 0.5));
+  };
+  const triggerHint = () => {
+    if (selectedCards.length !== 1) return; const w = shuffledCards[currentWave];
+    const m = w.find(c => c.pairId === selectedCards[0].pairId && c.id !== selectedCards[0].id);
+    const d = w.filter(c => c.pairId !== selectedCards[0].pairId && !matchedPairs.includes(c.pairId)).sort(() => 0.5 - Math.random());
+    setHintedCards([m.id, d[0]?.id, d[1]?.id]); setHintsUsed(h => h + 1); setTimeout(() => setHintedCards([]), 3000);
   };
 
   const handleCardClick = (clickedCard) => {
@@ -175,12 +182,17 @@ export default function App() {
             setSelectedCards([]);
           }}
         />
-      ) : (
-        <main className="stk-board">
-          {shuffledCards[currentWave]?.map((c, i) => (
-            <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />
-          ))}
-        </main>
+     ) : (
+        <>
+          <div style={{ width: '100%', textAlign: 'center', marginTop: '-60px', zIndex: 10, position: 'relative' }}>
+            <button className="stk-button" onClick={triggerHint} style={{ background: '#d4af37', color: '#222121' }}>💡 Indice</button>
+          </div>
+          <main className="stk-board">
+            {shuffledCards[currentWave]?.map((c, i) => (
+              <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} isHinted={hintedCards.includes(c.id)} index={i} />
+            ))}
+          </main>
+        </>
       )}
 
       {modalText && (
