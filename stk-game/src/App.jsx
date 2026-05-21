@@ -4,9 +4,14 @@ import Card from './Card.jsx';
 import IntroPage from './IntroPage.jsx';   // ← AJOUT : importer la nouvelle page 
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
+import successSound from './assets/Succes.mp3';
+import failureSound from './assets/echec.mp3';
+// 1. AJOUTE L'IMPORT DE TON IMAGE ICI :
+
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import effetdessin from './assets/effetdessin.png';
+
 
 
 export default function App() {
@@ -66,7 +71,7 @@ export default function App() {
   const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
   return (
     <div className="app-container">
-     <header className="stk-header">
+    <header className="stk-header">
         <img
           src={logoSTK}
           alt="STK Logo"
@@ -81,11 +86,12 @@ export default function App() {
         <button className="stk-audio-toggle" onClick={() => setIsMuted(!isMuted)}>
           {isMuted ? "🔇 Audio Off" : "🔊 Audio On"}
         </button>
+
         <audio ref={audioRef} src={natureSound} loop />
       </header>
 
       {/* ════════════════════════════════════════
-          PAGE 1 — Accueil (inchangée)
+          PAGE 1  — Accueil (inchangée)
           ════════════════════════════════════════ */}
       {page === "home" ? (
         <div className="stk-hero-section">
@@ -100,9 +106,10 @@ export default function App() {
             & <span className="stk-serif">écologique</span><br />
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
-         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
-         <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
+        <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
+        <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
         </div>
+      
 
       ) : page === "intro" ? (
         <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(generateWaves(cardsData)); setStartTime(Date.now()); setTurns(0); setCurrentWave(0); setHintsUsed(0); }} onBack={() => setPage("home")} />
@@ -119,6 +126,7 @@ export default function App() {
           ))}
         </main>
       )}
+
       {modalText && (
         <div className="stk-modal-overlay">
           <div className="stk-modal-content">
