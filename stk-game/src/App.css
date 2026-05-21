@@ -1,12 +1,12 @@
 /* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 200px 40px 40px;
-  transform: scale(0.8); /* Dézoome légèrement le plateau */
-  transform-origin: top center; /* Pour que le dézoom reste centré en haut */
+  display: flex; gap: 40px; justify-content: center; padding: 160px 20px 40px;
+}
+.stk-side {
+  display: grid; 
+  grid-template-columns: repeat(4, 120px); 
+  grid-template-rows: repeat(2, 160px); 
+  gap: 15px;
 }
 .stk-card {
   background-color: var(--card-bg);

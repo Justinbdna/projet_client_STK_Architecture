@@ -13,6 +13,11 @@ export default function App() {
   const [modalText, setModalText] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [shuffledCards, setShuffledCards] = useState([]);
+  const [isMuted, setIsMuted] = useState(true);
+  const audioRef = useRef(null);
+  useEffect(() => {
+    if (audioRef.current) isMuted ? audioRef.current.pause() : audioRef.current.play();
+  }, [isMuted]);
 // Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
   const shuffleCards = (cardsArray) => {
     return [...cardsArray].sort(() => Math.random() - 0.5);
@@ -68,9 +73,8 @@ export default function App() {
         </div>
       ) : (
         <main className="stk-board">
-          {shuffledCards.map((card, index) => (
-            <Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some((c) => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} index={index} />
-          ))}
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'archi').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'nature').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
         </main>
       )}
 
