@@ -9,6 +9,8 @@ import successSound from './assets/Succes.mp3';
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import image from './assets/image.png';
+import EndPage from './EndPage.jsx';
+
 
 
 export default function App() {
@@ -101,6 +103,37 @@ export default function App() {
       {/* ════════════════════════════════════════
           PAGE 1  — Accueil (inchangée)
           ════════════════════════════════════════ */}
+          {/* --- DÉBUT MODE DEV --- À SUPPRIMER AVANT LA PROD */}
+        <button 
+         onClick={() => {
+            // 1. Force le passage à l'état de jeu pour bypasser l'écran d'accueil
+            setPage("game");
+            
+            // 2. Extrait uniquement les identifiants de paires uniques
+            const allPairIds = [...new Set(cardsData.map(c => c.pairId))]; 
+            setMatchedPairs(allPairIds);
+            
+            // 3. Simule un chrono pour éviter un affichage "null" sur l'écran de fin
+            setFinalTime(120); 
+          }}
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            background: '#ff4444',
+            color: 'white',
+            padding: '10px 15px',
+            borderRadius: '8px',
+            fontWeight: 'bold',
+            zIndex: 9999,
+            border: '2px solid darkred',
+            cursor: 'pointer'
+          }}
+        >
+          🚨 [DEV] Forcer Victoire
+        </button>
+        {/* --- FIN MODE DEV --- */}
+        
       {page === "home" ? (
         <div className="stk-hero-section">
           <motion.h1
@@ -122,11 +155,25 @@ export default function App() {
       ) : page === "intro" ? (
         <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(generateWaves(cardsData)); setStartTime(Date.now()); setTurns(0); setCurrentWave(0); setHintsUsed(0); }} onBack={() => setPage("home")} />
       ) : isVictory ? (
-        <div className="stk-hero-section">
-          <h1 className="stk-hero-title"><span className="stk-serif">Félicitations</span><br/>Écosystème complété.</h1>
-          <p style={{ fontSize: '1.2rem', marginBottom: '20px' }}>Temps record : {finalTime} secondes | Manches utilisées : {turns}/22</p>
-          <button className="stk-button-hero-large" onClick={() => { setPage("home"); setMatchedPairs([]); }}>Retourner à l'accueil</button>
-        </div>
+        <EndPage 
+          finalTime={finalTime} 
+          turns={turns} 
+          onRestart={() => {
+            setMatchedPairs([]);
+            setSelectedCards([]);
+            setPage("game");
+            setShuffledCards(generateWaves(cardsData));
+            setStartTime(Date.now());
+            setTurns(0);
+            setCurrentWave(0);
+            setHintsUsed(0);
+          }}
+          onHome={() => {
+            setPage("home");
+            setMatchedPairs([]);
+            setSelectedCards([]);
+          }}
+        />
       ) : (
         <main className="stk-board">
           {shuffledCards[currentWave]?.map((c, i) => (
