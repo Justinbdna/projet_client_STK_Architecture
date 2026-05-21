@@ -125,7 +125,7 @@ export default function App() {
           }}
           style={{
             position: 'fixed',
-            top: '20px',
+            bottom: '20px',
             right: '20px',
             background: '#ff4444',
             color: 'white',
