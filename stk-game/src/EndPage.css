@@ -136,16 +136,28 @@
   border-top: 1px solid #2c4c3b18;
 }
 
-.bubble-btn-start {
-  background-color: #222121; color: #f6f2ec; border: none;
-  padding: 18px 40px; border-radius: 50px; font-family: 'Inter', sans-serif;
-  font-size: 1.1rem; font-weight: 700; cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.bubble-btn {
+  flex: 1; /* Permet aux boutons d'occuper le même espace */
+  min-width: 140px;
+  text-align: center;
+  background-color: #222121; 
+  color: #f6f2ec; 
+  border: 2px solid #222121;
+  padding: 16px 20px; 
+  border-radius: 50px; 
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem; 
+  font-weight: 700; 
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
 }
 
-.bubble-btn-start:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+.bubble-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background-color: #f6f2ec;
+  color: #222121;
 }
 
 .bubble-btn-back {
@@ -168,5 +180,5 @@
 @media (max-width: 480px) {
   .speech-bubble { padding: 28px 24px 32px; }
   .bubble-text { font-size: 1.05rem; }
-  .bubble-btn-start { padding: 14px 28px; font-size: 1rem; }
+  .bubble-btn { padding: 14px 20px; font-size: 0.95rem; }
 }

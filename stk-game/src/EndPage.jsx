@@ -6,21 +6,27 @@ import avatarImg from './assets/Avatar.png';
 export default function EndPage({ finalTime, turns, onRestart, onHome }) {
   const introText = "Félicitations ! Vous avez brillamment complété l'écosystème.";
   const handleShare = async () => {
-    // Note : On met (hintsUsed || 0) au cas où la valeur serait indéfinie
     const shareText = `J'ai terminé le jeu STK Architecture en ${finalTime} secondes avec seulement ${hintsUsed || 0} indice(s) utilisé(s) ! 🌿 Peux-tu faire mieux ?`;
 
-    if (navigator.share) {
+    // 1. On tente d'abord l'API native (fonctionnera sur mobile en HTTPS)
+    if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
       try {
         await navigator.share({
           title: 'Mon score STK Architecture',
           text: shareText,
         });
       } catch (error) {
-        console.log('Partage annulé ou échoué', error);
+        console.log('Partage ignoré', error);
       }
     } else {
-      navigator.clipboard.writeText(shareText);
-      alert("Ton score a été copié dans le presse-papier ! Tu peux le coller sur tes réseaux sociaux.");
+      // 2. Si sur PC ou navigateur non compatible, on utilise le presse-papier
+      try {
+        await navigator.clipboard.writeText(shareText);
+        alert("✅ Ton score a été copié dans le presse-papier ! Tu peux le coller sur tes réseaux sociaux.");
+      } catch (err) {
+        // 3. Fallback ultime si les permissions HTTPS bloquent même le presse-papier
+        window.prompt("Copie ton score avec Ctrl+C (ou Cmd+C) :", shareText);
+      }
     }
   };
   
@@ -173,16 +179,16 @@ export default function EndPage({ finalTime, turns, onRestart, onHome }) {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4, delay: 0.2 }}
                         >
-                          <button className="bubble-btn-start" onClick={onRestart}>
-                            Rejouer
+                          <button className="bubble-btn" onClick={onRestart}>
+                            🔄 Rejouer
                           </button>
                           
-                          <button className="bubble-btn-start" onClick={handleShare} style={{ backgroundColor: '#2c4c3b' }}>
+                          <button className="bubble-btn" onClick={handleShare}>
                             📱 Partager
                           </button>
                           
-                          <button className="bubble-btn-back" onClick={onHome}>
-                            Accueil
+                          <button className="bubble-btn" onClick={onHome}>
+                            🏠 Accueil
                           </button>
                         </motion.div>
                       )}
