@@ -8,7 +8,7 @@ import erreurSound from './assets/erreur.mp3';
 import successSound from './assets/Succes.mp3';
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
-import effetdessin from './assets/effetdessin.png';
+import image from './assets/image.png';
 
 
 export default function App() {
@@ -56,12 +56,18 @@ export default function App() {
       setTurns(prev => prev + 1);
       
       if (first.pairId === second.pairId) {
+        // AJOUT ICI : Jouer le son de succès
+        if (!isMuted && successRef.current) successRef.current.play();
+        
         setMatchedPairs([...matchedPairs, first.pairId]);
         setModalText(first.explanation);
         const total = matchedPairs.length + 1;
         if (total === 7 || total === 14) setCurrentWave(w => w + 1);
         if (total === 22) setFinalTime(Math.floor((Date.now() - startTime) / 1000));
       } else {
+        // AJOUT ICI : Jouer le son d'erreur
+        if (!isMuted && errorRef.current) errorRef.current.play();
+        
         setTimeout(() => setSelectedCards([]), 1000);
       }
     }
@@ -87,8 +93,11 @@ export default function App() {
         </button>
 
         <audio ref={audioRef} src={natureSound} loop />
+        
+        {/* AJOUT ICI : Les balises pour les bruitages */}
+        <audio ref={successRef} src={successSound} />
+        <audio ref={errorRef} src={erreurSound} />
       </header>
-
       {/* ════════════════════════════════════════
           PAGE 1  — Accueil (inchangée)
           ════════════════════════════════════════ */}
@@ -106,7 +115,7 @@ export default function App() {
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
-        <div className="stk-hero-image-container"><img src={effetdessin} alt="Architecture" className="stk-hero-image" /></div>
+        <div className="stk-hero-image-container"><img src={image} alt="Architecture" className="stk-hero-image" /></div>
         </div>
       
 
