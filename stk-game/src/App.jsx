@@ -1,11 +1,11 @@
 import cardsData from './data/cards.json';
 import './App.css';
 import Card from './Card.jsx';
-import IntroPage from './IntroPage.jsx';   // ← AJOUT : importer la nouvelle page
-import { useState } from 'react';
+import IntroPage from './IntroPage.jsx';   // ← AJOUT : importer la nouvelle page 
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import natureSound from './assets/Bird_sounds.mp3';
 import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
 
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   const [matchedPairs, setMatchedPairs] = useState([]); // Mémoire des succès
   const [modalText, setModalText] = useState(null);
   const [shuffledCards, setShuffledCards] = useState([]);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -55,24 +55,28 @@ export default function App() {
   const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
   return (
     <div className="app-container">
-      <header className="stk-header">
+     <header className="stk-header">
         <img
           src={logoSTK}
           alt="STK Logo"
           className="stk-logo"
           onClick={() => {
-            setPage("home");        // ← MODIFIÉ : retour à "home" au lieu de false
+            setPage("home");
             setMatchedPairs([]);
             setSelectedCards([]);
           }}
           style={{ cursor: 'pointer' }}
         />
+        <button className="stk-audio-toggle" onClick={() => setIsMuted(!isMuted)}>
+          {isMuted ? "🔇 Audio Off" : "🔊 Audio On"}
+        </button>
+        <audio ref={audioRef} src={natureSound} loop />
       </header>
-
+      
       {/* ════════════════════════════════════════
           PAGE 1 — Accueil (inchangée)
           ════════════════════════════════════════ */}
-      {page === "home" && (
+      {page === "home" ? (
         <div className="stk-hero-section">
           <motion.h1
             className="stk-hero-title"
@@ -85,18 +89,20 @@ export default function App() {
             & <span className="stk-serif">écologique</span><br />
             <span className="stk-serif">par le jeu</span>
           </motion.h1>
-          <button className="stk-button-hero-large" onClick={() => { setGameStarted(true); setShuffledCards(shuffleCards(cardsData)); }}>Découvrir l'expérience</button>
+         <button className="stk-button-hero-large" onClick={() => setPage("intro")}>Découvrir l'expérience</button>
         </div>
+
+      ) : page === "intro" ? (
+        <IntroPage onStartGame={() => { setPage("game"); setShuffledCards(shuffleCards(cardsData)); }} onBack={() => setPage("home")} />
       ) : isVictory ? (
         <div className="stk-hero-section">
           <h1 className="stk-hero-title"><span className="stk-serif">Félicitations</span><br/>Écosystème complété.</h1>
-          <button className="stk-button-hero-large" onClick={() => { setGameStarted(false); setMatchedPairs([]); }}>Retourner à l'accueil</button>
+          <button className="stk-button-hero-large" onClick={() => { setPage("home"); setMatchedPairs([]); }}>Retourner à l'accueil</button>
         </div>
       ) : (
         <main className="stk-board">
-          {shuffledCards.map((card, index) => (
-            <Card key={card.id} card={card} onClick={handleCardClick} isSelected={selectedCards.some((c) => c.id === card.id)} isMatched={matchedPairs.includes(card.pairId)} index={index} />
-          ))}
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'archi').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
+          <div className="stk-side">{shuffledCards.filter(c => c.type === 'nature').map((c, i) => (<Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} index={i} />))}</div>
         </main>
       )}
       {modalText && (
