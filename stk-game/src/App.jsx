@@ -5,6 +5,8 @@ import { useState, useRef, useEffect } from 'react';
 import logoSTK from './assets/logo-stk-architecture.jpg';
 import { motion } from 'framer-motion';import effetdessin from './assets/effetdessin.png'; 
 import natureSound from './assets/Bird_sounds.mp3';
+import successSound from './assets/succes.mp3';
+import errorSound from './assets/echec.mp3';
 
 
 export default function App() {
