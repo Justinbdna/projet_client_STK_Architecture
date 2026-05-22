@@ -8,65 +8,57 @@
   { "id": 5, "type": "nature", "pairId": "lotus", "name": "Feuille de Lotus", "image": "/cartes/lotus.webp", "explanation": "Les vitrages et peintures auto-nettoyantes imitent la micro-texture de la feuille de lotus qui repousse l'eau et la saleté." },
   { "id": 6, "type": "archi", "pairId": "lotus", "name": "Vitrage auto-nettoyant", "image": "/cartes/hydrofuge.webp", "explanation": "Les vitrages et peintures auto-nettoyantes imitent la micro-texture de la feuille de lotus qui repousse l'eau et la saleté." },
   
-  { "id": 7, "type": "nature", "pairId": "ours", "name": "Ours Polaire", "explanation": "Certaines façades captent et conservent la chaleur solaire en imitant les poils creux et translucides de l'ours polaire." },
-  { "id": 8, "type": "archi", "pairId": "ours", "name": "Façade isolante", "explanation": "Certaines façades captent et conservent la chaleur solaire en imitant les poils creux et translucides de l'ours polaire." },
+  { "id": 7, "type": "nature", "pairId": "eponge", "name": "Éponge de Mer", "image": "/cartes/corbeille_venus.webp", "explanation": "La structure en treillis du Gherkin de Londres s'inspire de l'éponge de mer pour résister aux vents avec un minimum de matériaux." },
+  { "id": 8, "type": "archi", "pairId": "eponge", "name": "Le Gherkin", "image": "/cartes/st_mary_axe.webp", "explanation": "La structure en treillis du Gherkin de Londres s'inspire de l'éponge de mer pour résister aux vents avec un minimum de matériaux." },
   
-  { "id": 9, "type": "nature", "pairId": "eponge", "name": "Éponge de Mer", "image": "/cartes/corbeille_venus.webp", "explanation": "La structure en treillis du Gherkin de Londres s'inspire de l'éponge de mer pour résister aux vents avec un minimum de matériaux." },
-  { "id": 10, "type": "archi", "pairId": "eponge", "name": "Le Gherkin (Londres)", "image": "/cartes/st_mary_axe.webp", "explanation": "La structure en treillis du Gherkin de Londres s'inspire de l'éponge de mer pour résister aux vents avec un minimum de matériaux." },
+  { "id": 9, "type": "nature", "pairId": "zebre", "name": "Rayures de Zèbre", "image": "/cartes/zebre.webp", "explanation": "Des façades alternent les couleurs pour créer des micro-courants d'air refroidissants, comme le pelage du zèbre." },
+  { "id": 10, "type": "archi", "pairId": "zebre", "name": "Façade thermique", "image": "/cartes/camouflage.webp", "explanation": "Des façades alternent les couleurs pour créer des micro-courants d'air refroidissants, comme le pelage du zèbre." },
   
-  { "id": 11, "type": "nature", "pairId": "zebre", "name": "Rayures de Zèbre", "image": "/cartes/zebre.webp", "explanation": "Des façades alternent les couleurs pour créer des micro-courants d'air refroidissants, comme le pelage du zèbre." },
-  { "id": 12, "type": "archi", "pairId": "zebre", "name": "Façade à rayures thermiques", "image": "/cartes/camouflage.webp", "explanation": "Des façades alternent les couleurs pour créer des micro-courants d'air refroidissants, comme le pelage du zèbre." },
+  { "id": 11, "type": "nature", "pairId": "morpho", "name": "Papillon Morpho", "image": "/cartes/papillon_morpho.webp", "explanation": "La structure nanométrique des ailes du papillon Morpho inspire des panneaux solaires plus efficaces et des couleurs sans pigments." },
+  { "id": 12, "type": "archi", "pairId": "morpho", "name": "Panneaux solaires", "image": "/cartes/panneaux.webp", "explanation": "La structure nanométrique des ailes du papillon Morpho inspire des panneaux solaires plus efficaces et des couleurs sans pigments." },
   
-  { "id": 13, "type": "nature", "pairId": "papillon", "name": "Papillon Morpho", "image": "/cartes/papillon_morpho.webp", "explanation": "La structure nanométrique des ailes du papillon Morpho inspire des panneaux solaires plus efficaces et des couleurs sans pigments." },
-  { "id": 14, "type": "archi", "pairId": "papillon", "name": "Panneaux solaires", "image": "/cartes/panneaux.webp", "explanation": "La structure nanométrique des ailes du papillon Morpho inspire des panneaux solaires plus efficaces et des couleurs sans pigments." },
+  { "id": 13, "type": "nature", "pairId": "orchidee", "name": "Orchidée", "image": "/cartes/orchidee.png", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
+  { "id": 14, "type": "archi", "pairId": "orchidee", "name": "Gardens by the Bay", "image": "/cartes/garden_bay.webp", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
   
-  { "id": 15, "type": "nature", "pairId": "orchidee", "name": "Orchidée", "image": "/cartes/orchidee.png", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
-  { "id": 16, "type": "archi", "pairId": "orchidee", "name": "Gardens by the Bay", "image": "/cartes/garden_bay.webp", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
+  { "id": 15, "type": "nature", "pairId": "scarabee", "name": "Scarabée de Namibie", "image": "/cartes/coleoptere.webp", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
+  { "id": 16, "type": "archi", "pairId": "scarabee", "name": "Capteurs de rosée", "image": "/cartes/filets.png", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
   
-  { "id": 17, "type": "nature", "pairId": "scarabee", "name": "Scarabée de Namibie", "image": "/cartes/coleoptere.webp", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
- { "id": 18, "type": "archi", "pairId": "scarabee", "name": "Capteurs de brouillard", "image": "/cartes/filets.png", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
+  { "id": 17, "type": "nature", "pairId": "corail", "name": "Corail", "image": "/cartes/corail.webp", "explanation": "Le bio-béton absorbe le CO2 lors de sa fabrication, imitant la façon dont les coraux construisent leurs récifs calcaires." },
+  { "id": 18, "type": "archi", "pairId": "corail", "name": "Ciment neutre", "image": "/cartes/ciment.webp", "explanation": "Le bio-béton absorbe le CO2 lors de sa fabrication, imitant la façon dont les coraux construisent leurs récifs calcaires." },
   
-  { "id": 19, "type": "nature", "pairId": "araignee", "name": "Toile d'Araignée", "explanation": "Le vitrage Ornilux intègre des motifs UV visibles par les oiseaux pour éviter les collisions, comme le font les toiles d'araignées." },
-  { "id": 20, "type": "archi", "pairId": "araignee", "name": "Vitrage anti-collision", "explanation": "Le vitrage Ornilux intègre des motifs UV visibles par les oiseaux pour éviter les collisions, comme le font les toiles d'araignées." },
+  { "id": 19, "type": "nature", "pairId": "requin", "name": "Peau de Requin", "image": "/cartes/requin.webp", "explanation": "Le revêtement antibactérien Sharklet imite la texture de la peau de requin pour empêcher les bactéries de s'y fixer dans les hôpitaux." },
+  { "id": 20, "type": "archi", "pairId": "requin", "name": "Revêtement", "image": "/cartes/combinaison.webp", "explanation": "Le revêtement antibactérien Sharklet imite la texture de la peau de requin pour empêcher les bactéries de s'y fixer dans les hôpitaux." },
   
-  { "id": 21, "type": "nature", "pairId": "corail", "name": "Corail", "image": "/cartes/corail.webp", "explanation": "Le bio-béton absorbe le CO2 lors de sa fabrication, imitant la façon dont les coraux construisent leurs récifs calcaires." },
-  { "id": 22, "type": "archi", "pairId": "corail", "name": "Bio-béton", "image": "/cartes/ciment.webp", "explanation": "Le bio-béton absorbe le CO2 lors de sa fabrication, imitant la façon dont les coraux construisent leurs récifs calcaires." },
+  { "id": 21, "type": "nature", "pairId": "gecko", "name": "Pattes de Gecko", "image": "/cartes/gecko.webp", "explanation": "Des adhésifs structurels secs reproduisent les millions de poils microscopiques du gecko pour fixer des matériaux sans colle chimique." },
+  { "id": 22, "type": "archi", "pairId": "gecko", "name": "Adhésif sec", "image": "/cartes/adhesif.webp", "explanation": "Des adhésifs structurels secs reproduisent les millions de poils microscopiques du gecko pour fixer des matériaux sans colle chimique." },
   
-  { "id": 23, "type": "nature", "pairId": "pomme_pin", "name": "Pomme de Pin", "explanation": "Les pavillons météorosensibles utilisent un bois qui s'ouvre et se ferme selon l'humidité, sans électricité, comme la pomme de pin." },
-  { "id": 24, "type": "archi", "pairId": "pomme_pin", "name": "Pavillon Météorosensible", "explanation": "Les pavillons météorosensibles utilisent un bois qui s'ouvre et se ferme selon l'humidité, sans électricité, comme la pomme de pin." },
+  { "id": 23, "type": "nature", "pairId": "baleine", "name": "Nageoire de Baleine", "image": "/cartes/baleine.webp", "explanation": "De nouvelles éoliennes permettent d'importantes économies d'énergie en reproduisant les cannelures se trouvant sur les nageoires des baleines à bosse." },
+  { "id": 24, "type": "archi", "pairId": "baleine", "name": "Éoliennes", "image": "/cartes/eoliennes.webp", "explanation": "De nouvelles éoliennes permettent d'importantes économies d'énergie en reproduisant les cannelures se trouvant sur les nageoires des baleines à bosse." },
   
-  { "id": 25, "type": "nature", "pairId": "requin", "name": "Peau de Requin", "image": "/cartes/requin.webp", "explanation": "Le revêtement antibactérien Sharklet imite la texture de la peau de requin pour empêcher les bactéries de s'y fixer dans les hôpitaux." },
-  { "id": 26, "type": "archi", "pairId": "requin", "name": "Revêtement antibactérien", "image": "/cartes/combinaison.webp", "explanation": "Le revêtement antibactérien Sharklet imite la texture de la peau de requin pour empêcher les bactéries de s'y fixer dans les hôpitaux." },
+  { "id": 25, "type": "nature", "pairId": "os", "name": "Os Humain", "image": "/cartes/os.webp", "explanation": "L'optimisation topologique des ponts imite la structure spongieuse de l'os, plaçant la matière uniquement là où s'exercent les forces." },
+  { "id": 26, "type": "archi", "pairId": "os", "name": "Tour Eiffel", "image": "/cartes/tour_eiffel.webp", "explanation": "L'optimisation topologique des ponts imite la structure spongieuse de l'os, plaçant la matière uniquement là où s'exercent les forces." },
   
-  { "id": 27, "type": "nature", "pairId": "tournesol", "name": "Tournesol", "explanation": "Les maisons héliotropes tournent sur elles-mêmes pour suivre la course du soleil et optimiser l'énergie solaire, comme la fleur." },
-  { "id": 28, "type": "archi", "pairId": "tournesol", "name": "Bâtiment tournant", "explanation": "Les maisons héliotropes tournent sur elles-mêmes pour suivre la course du soleil et optimiser l'énergie solaire, comme la fleur." },
+  { "id": 27, "type": "nature", "pairId": "nautile", "name": "Nautile", "image": "/cartes/nautile.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
+  { "id": 28, "type": "archi", "pairId": "nautile", "name": "Turbomoteur", "image": "/cartes/turbomoteur.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
   
-  { "id": 29, "type": "nature", "pairId": "nenuphar", "name": "Nénuphar Géant", "explanation": "Les réseaux de nervures sous le nénuphar géant d'Amazonie ont inspiré la structure flottante et légère du Crystal Palace." },
-  { "id": 30, "type": "archi", "pairId": "nenuphar", "name": "Crystal Palace", "explanation": "Les réseaux de nervures sous le nénuphar géant d'Amazonie ont inspiré la structure flottante et légère du Crystal Palace." },
+  { "id": 29, "type": "nature", "pairId": "bardane", "name": "Fruit de Bardane", "image": "/cartes/bardane.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
+  { "id": 30, "type": "archi", "pairId": "bardane", "name": "Scratch (Velcro)", "image": "/cartes/scratch.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
   
-  { "id": 31, "type": "nature", "pairId": "gecko", "name": "Pattes de Gecko", "image": "/cartes/gecko.webp", "explanation": "Des adhésifs structurels secs reproduisent les millions de poils microscopiques du gecko pour fixer des matériaux sans colle chimique." },
-  { "id": 32, "type": "archi", "pairId": "gecko", "name": "Adhésif sec", "image": "/cartes/adhesif.webp", "explanation": "Des adhésifs structurels secs reproduisent les millions de poils microscopiques du gecko pour fixer des matériaux sans colle chimique." },
-  
-  { "id": 33, "type": "nature", "pairId": "chouette", "name": "Plumes de Chouette", "explanation": "Le profil dentelé des plumes de la chouette, qui lui permet un vol silencieux, inspire les pales des éoliennes modernes." },
-  { "id": 34, "type": "archi", "pairId": "chouette", "name": "Éoliennes silencieuses", "image": "/cartes/eoliennes.webp", "explanation": "Le profil dentelé des plumes de la chouette, qui lui permet un vol silencieux, inspire les pales des éoliennes modernes." },
-  
-  { "id": 35, "type": "nature", "pairId": "baleine", "name": "Nageoire de Baleine", "image": "/cartes/baleine.webp", "explanation": "Les tubercules sur les nageoires des baleines à bosse améliorent l'aérodynamisme des pales d'éoliennes et des turbines." },
-  { "id": 36, "type": "archi", "pairId": "baleine", "name": "Turbine hydrodynamique", "explanation": "Les tubercules sur les nageoires des baleines à bosse améliorent l'aérodynamisme des pales d'éoliennes et des turbines." },
-  
-  { "id": 37, "type": "nature", "pairId": "abeille", "name": "Rayon de Miel", "explanation": "Les structures en nid d'abeille offrent une résistance mécanique maximale pour un minimum de matériaux, très utilisé en architecture légère." },
-  { "id": 38, "type": "archi", "pairId": "abeille", "name": "Structure en nid d'abeille", "explanation": "Les structures en nid d'abeille offrent une résistance mécanique maximale pour un minimum de matériaux, très utilisé en architecture légère." },
-  
-  { "id": 39, "type": "nature", "pairId": "os", "name": "Os Humain", "image": "/cartes/os.webp", "explanation": "L'optimisation topologique des ponts imite la structure spongieuse de l'os, plaçant la matière uniquement là où s'exercent les forces." },
-  { "id": 40, "type": "archi", "pairId": "os", "name": "Pont optimisé", "image": "/cartes/tour_eiffel.webp", "explanation": "L'optimisation topologique des ponts imite la structure spongieuse de l'os, plaçant la matière uniquement là où s'exercent les forces." },
-  
-  { "id": 41, "type": "nature", "pairId": "nautile", "name": "Nautile", "image": "/cartes/nautile.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
-  { "id": 42, "type": "archi", "pairId": "nautile", "name": "Pompe hélicoïdale", "image": "/cartes/turbomoteur.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
-  
-  { "id": 43, "type": "nature", "pairId": "bardane", "name": "Fleur de Bardane", "image": "/cartes/bardane.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
-  { "id": 44, "type": "archi", "pairId": "bardane", "name": "Fixation Velcro", "image": "/cartes/scratch.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
-  { "id": 45, "type": "nature", "pairId": "moule", "name": "Moule", "image": "/cartes/moule.png", "explanation": "La moule se fixe sur n'importe quelle surface, même métallique, sous l'eau. Cette propriété a inspiré des chercheurs pour créer des colles bio-inspirées ultra-puissantes." },
-  { "id": 46, "type": "archi", "pairId": "moule", "name": "Colle forte", "image": "/cartes/colle.webp", "explanation": "La moule se fixe sur n'importe quelle surface, même métallique, sous l'eau. Cette propriété a inspiré des chercheurs pour créer des colles bio-inspirées ultra-puissantes." },
+  { "id": 31, "type": "nature", "pairId": "moule", "name": "Moule", "image": "/cartes/moule.png", "explanation": "La moule se fixe sur n'importe quelle surface, même métallique, sous l'eau. Cette propriété a inspiré des chercheurs pour créer des colles bio-inspirées ultra-puissantes." },
+  { "id": 32, "type": "archi", "pairId": "moule", "name": "Colle forte", "image": "/cartes/colle.webp", "explanation": "La moule se fixe sur n'importe quelle surface, même métallique, sous l'eau. Cette propriété a inspiré des chercheurs pour créer des colles bio-inspirées ultra-puissantes." },
 
-  { "id": 47, "type": "nature", "pairId": "cicatrice", "name": "Cicatrice", "image": "/cartes/cicatrice.webp", "explanation": "La cicatrisation de la peau a inspiré le béton autocicatrisant : des bactéries encapsulées se réveillent au contact de l'eau dans une fissure et produisent du carbonate de calcium pour la colmater." },
-  { "id": 48, "type": "archi", "pairId": "cicatrice", "name": "Béton autocicatrisant", "image": "/cartes/beton.png", "explanation": "La cicatrisation de la peau a inspiré le béton autocicatrisant : des bactéries encapsulées se réveillent au contact de l'eau dans une fissure et produisent du carbonate de calcium pour la colmater." }
+  { "id": 33, "type": "nature", "pairId": "cicatrice", "name": "Cicatrice", "image": "/cartes/cicatrice.webp", "explanation": "La cicatrisation de la peau a inspiré le béton autocicatrisant : des bactéries encapsulées se réveillent au contact de l'eau dans une fissure." },
+  { "id": 34, "type": "archi", "pairId": "cicatrice", "name": "Béton", "image": "/cartes/beton.png", "explanation": "La cicatrisation de la peau a inspiré le béton autocicatrisant : des bactéries encapsulées se réveillent au contact de l'eau dans une fissure." },
+
+  { "id": 35, "type": "nature", "pairId": "moustique", "name": "Trompe du moustique", "image": "/cartes/moustique.webp", "explanation": "En s'inspirant de la piqûre du moustique, indolore bien que désagréable, une société a inventé une nouvelle aiguille conique et plus fine." },
+  { "id": 36, "type": "archi", "pairId": "moustique", "name": "Aiguille médicale", "image": "/cartes/aiguille.webp", "explanation": "En s'inspirant de la piqûre du moustique, indolore bien que désagréable, une société a inventé une nouvelle aiguille conique et plus fine." },
+
+  { "id": 37, "type": "nature", "pairId": "luciole", "name": "Luciole", "image": "/cartes/luciole.webp", "explanation": "L'abdomen de la luciole, couvert d'écailles en dents de scie, aide l'insecte à briller plus fort et a inspiré l'augmentation de la luminosité des LED." },
+  { "id": 38, "type": "archi", "pairId": "luciole", "name": "Ampoule LED", "image": "/cartes/ampoule.webp", "explanation": "L'abdomen de la luciole, couvert d'écailles en dents de scie, aide l'insecte à briller plus fort et a inspiré l'augmentation de la luminosité des LED." },
+
+  { "id": 39, "type": "nature", "pairId": "greta", "name": "Papillon Greta oto", "image": "/cartes/papillon_greta.webp", "explanation": "Des chercheurs travaillent sur un matériau transparent anti-reflet en s'inspirant des ailes du papillon Greta oto qui possède cette particularité." },
+  { "id": 40, "type": "archi", "pairId": "greta", "name": "Verres anti-reflet", "image": "/cartes/verres.webp", "explanation": "Des chercheurs travaillent sur un matériau transparent anti-reflet en s'inspirant des ailes du papillon Greta oto qui possède cette particularité." },
+
+  { "id": 41, "type": "nature", "pairId": "manchot", "name": "Manchot", "image": "/cartes/manchot.webp", "explanation": "Pour limiter les pertes de chaleur, les manchots se regroupent en cercles très denses, un comportement qui a inspiré le plan de masse du District 11." },
+  { "id": 42, "type": "archi", "pairId": "manchot", "name": "District 11", "image": "/cartes/district_11.webp", "explanation": "Pour limiter les pertes de chaleur, les manchots se regroupent en cercles très denses, un comportement qui a inspiré le plan de masse du District 11." }
 ]
