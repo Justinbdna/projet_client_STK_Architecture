@@ -237,10 +237,12 @@ export default function App() {
           <div className="stk-slider-wrapper">
             <button className="stk-arrow left" onClick={() => boardRef.current?.scrollBy({ left: -320, behavior: 'smooth' })}>‹</button>
             <main className="stk-board" ref={boardRef}>
-              {shuffledCards[currentWave]?.map((c, i) => (
-                <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} isHinted={hintedCards.includes(c.id)} index={i} />
-              ))}
-            </main>
+            {shuffledCards[currentWave]?.map((c, i) => {
+              const natureCount = shuffledCards[currentWave].filter(x => x.type === 'nature').length;
+              const colIndex = c.type === 'nature' ? i + 1 : (i - natureCount) + 1;
+              return <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} isHinted={hintedCards.includes(c.id)} index={i} colIndex={colIndex} />;
+            })}
+          </main>
             <button className="stk-arrow right" onClick={() => boardRef.current?.scrollBy({ left: 320, behavior: 'smooth' })}>›</button>
           </div>
         </>

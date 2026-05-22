@@ -5,13 +5,13 @@
 /* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
   display: grid;
-  grid-template-rows: repeat(2, 250px); /* 2 lignes fixes de hauteur zoomée */
+  grid-template-rows: repeat(2, 380px); /* Hauteur augmentée pour le zoom */
   grid-auto-flow: column;
-  grid-auto-columns: 185px; /* Largeur confortable pour les visuels */
+  grid-auto-columns: 260px; /* Largeur augmentée pour de grandes cartes */
   gap: 24px; 
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 20px 10px;
+  padding: 160px 10px;
   width: 100%;
   box-sizing: border-box;
 }
