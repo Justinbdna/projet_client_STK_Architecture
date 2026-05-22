@@ -83,22 +83,13 @@ export default function App() {
       
       if (first.pairId === second.pairId) {
         if (!isMuted && successRef.current) successRef.current.play();
-        
-        setMatchedPairs([...matchedPairs, first.pairId]);
+        const updatedPairs = [...matchedPairs, first.pairId];
+        setMatchedPairs(updatedPairs);
         setModalText(first.explanation);
+        if (updatedPairs.length === cardsData.length / 2) {
+          setFinalTime(Math.floor((Date.now() - startTime) / 1000));
+        }
       } else {
-        // --- AJOUTE CECI ICI ---
-        const total = matchedPairs.length + 1;
-        if (total === 22) setFinalTime(Math.floor((Date.now() - startTime) / 1000));
-        // -----------------------
-      
-        // Gestion automatique de la fin de partie
-  useEffect(() => {
-    const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
-    if (isVictory && startTime && !finalTime) {
-      setFinalTime(Math.floor((Date.now() - startTime) / 1000));
-    }
-  }, [matchedPairs, startTime, finalTime]);
         // AJOUT ICI : Jouer le son d'erreur
         if (!isMuted && errorRef.current) errorRef.current.play();
         

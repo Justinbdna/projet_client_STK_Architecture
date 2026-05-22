@@ -6,9 +6,9 @@ export default function Card({ card, onClick, isSelected, isMatched, isHinted, i
   return (
   <motion.button className={classes} onClick={() => onClick(card)} disabled={isMatched} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: index * 0.05 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
      {card.image ? (
-        <img src={card.image} alt={card.name} />
+        <img src={card.image} alt={card.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' }} />
       ) : (
-        <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '0.9rem', textAlign: 'center', padding: '10px', color: isMatched ? '#f6f2ec' : '#222121' }}>{card.name}</span>
+        <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '1rem', fontWeight: '600', padding: '15px', color: isMatched ? 'white' : '#222121' }}>{card.name}</span>
       )}
   </motion.button>
   );
