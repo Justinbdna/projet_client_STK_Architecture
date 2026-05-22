@@ -57,10 +57,21 @@ export default function App() {
     }
   }, [isMuted, activeTrack]);
 
-// Fonction pour mélanger les cartes de manière aléatoire (Algorithme de Fisher-Yates)
+// Fonction pour organiser les vagues : Nature en haut, Architecture en bas
   const generateWaves = (data) => {
+    // 1. Créer les paires et les mélanger
     const pairs = Array.from({length: data.length/2}, (_, i) => [data[i*2], data[i*2+1]]).sort(() => Math.random() - 0.5);
-    return [pairs.slice(0, 7).flat(), pairs.slice(7, 14).flat(), pairs.slice(14, 22).flat()].map(w => w.sort(() => Math.random() - 0.5));
+
+    // 2. Fonction pour trier une vague par type
+    const formatWave = (wavePairs) => {
+      const allCards = wavePairs.flat();
+      const natureCards = allCards.filter(c => c.type === 'nature').sort(() => Math.random() - 0.5);
+      const archiCards = allCards.filter(c => c.type === 'archi').sort(() => Math.random() - 0.5);
+      return [...natureCards, ...archiCards]; // Nature en premier, Archi ensuite
+    };
+
+    // 3. Retourner les deux vagues (10 paires puis 11 paires)
+    return [formatWave(pairs.slice(0, 10)), formatWave(pairs.slice(10, 21))];
   };
   const triggerHint = () => {
     if (selectedCards.length !== 1) return; const w = shuffledCards[currentWave];
@@ -244,8 +255,8 @@ export default function App() {
                 setModalText(null);
                 setSelectedCards([]);
 
-                // On passe à la vague suivante uniquement après la fermeture de la modale 
-                if (matchedPairs.length === 7 && currentWave === 0) {
+                // On passe à la partie 2 une fois les 10 premières paires trouvées
+                if (matchedPairs.length === 10 && currentWave === 0) {
                   setCurrentWave(1);
                 }
               }}
