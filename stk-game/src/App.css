@@ -10,7 +10,7 @@
   justify-content: center;
   max-width: 1000px; 
   margin: 0 auto; 
-  padding: 120px 24px 40px;
+  padding: 200px 24px 40px;
   box-sizing: border-box;
 }
 
@@ -210,6 +210,8 @@
   background: white; padding: 40px; border-radius: 15px; max-width: 450px; text-align: center; 
   border: 1px solid #2c4c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
   backface-visibility: hidden; /* Empêche le scintillement du texte pendant le dépliage */
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* --- INTRO & END PAGE (Fusionnées & Centrées) --- */
