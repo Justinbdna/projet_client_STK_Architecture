@@ -5,10 +5,10 @@
 /* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-  gap: 16px; 
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); 
+  gap: 20px; 
   justify-content: center;
-  max-width: 1000px; 
+  max-width: 1200px; 
   margin: 0 auto; 
   padding: 200px 24px 40px;
   box-sizing: border-box;
@@ -439,5 +439,9 @@
   }
   .stk-card {
     height: auto; /* La proportion aspect-ratio prend le relais */
+  }
+  .bubble-btn, .stk-bouton {
+    padding: 10px 20px !important;
+    font-size: 0.85rem !important;
   }
 }
