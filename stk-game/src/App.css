@@ -433,7 +433,7 @@
   .stk-board {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    padding: 100px 16px 40px;
+    padding: 140px 16px 40px;
   }
   .stk-card {
     height: auto; /* La proportion aspect-ratio prend le relais */
