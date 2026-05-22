@@ -5,7 +5,7 @@ export default function Card({ card, onClick, isSelected, isMatched, isHinted, i
   
   return (
    <motion.button className={classes} onClick={() => onClick(card)} disabled={isMatched} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: index * 0.05 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <img src="" alt={card.name} style={{ width: '80%', height: '80px', objectFit: 'contain', marginBottom: '10px' }} />
+      {card.image ? <img src={card.image} alt={card.name} /> : null}
       <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '0.9rem', textAlign: 'center', color: isMatched ? 'white' : 'inherit' }}>{card.name}</span>
     </motion.button>
   );

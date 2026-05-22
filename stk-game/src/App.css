@@ -121,7 +121,7 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid #2c4c3b30;
-  border-radius: 16px;
+  border-radius: 24px;
   width: 220px;
   padding: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
@@ -366,4 +366,29 @@
   .bubble-btn, .bubble-btn-back {
     width: 100%; 
   }
+}
+/* --- BOUTON DU MODAL D'EXPLICATION (BIOMIMÉTISME) --- */
+.stk-bouton {
+  background: #222121;
+  color: #f6f2ec;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  margin-top: 15px;
+}
+
+.stk-bouton:hover {
+  background: #2c4c3b; /* Devient vert STK au survol */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(44, 76, 59, 0.2);
+}
+
+.stk-bouton:active {
+  transform: translateY(0);
 }

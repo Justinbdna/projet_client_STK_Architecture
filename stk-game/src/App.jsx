@@ -265,12 +265,12 @@ export default function App() {
         <div className="stk-modal-overlay">
           <motion.div 
             className="stk-modal-content"
-            initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} 
-            transition={{ duration: 0.6, type: "spring", bounce: 0.4 }} style={{ transformOrigin: "top", perspective: 1000 }}
+            initial={{ rotateX: -90, y: -40, opacity: 0 }} animate={{ rotateX: 0, y: 0, opacity: 1 }} 
+            transition={{ duration: 0.7, type: "spring", bounce: 0.5 }} style={{ transformOrigin: "top center", transformStyle: "preserve-3d" }}
           >
-            <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>{modalText}</p>
+            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.2rem', fontStyle: 'italic', color: '#222121', marginBottom: '25px', lineHeight: '1.6' }}>{modalText}</p>
             <button
-              className="stk-button"
+              className="stk-bouton"
               onClick={() => {
                 setModalText(null);
                 setSelectedCards([]);
