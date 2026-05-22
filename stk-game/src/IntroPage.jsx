@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import avatarImg from './assets/Avatar.png';
 
-const introText = "Bienvenue dans l'expérience STK Architecture ! Prêt à explorer les fondamentaux du design durable ?";
+const introText = "Bienvenue dans l'expérience STK CyanoFold! Prêt à explorer les fondamentaux du design durable ?";
 
 const rules = [
   { num: "01", text: "Retrouvez les paires de concepts liés à l'architecture bioclimatique." },

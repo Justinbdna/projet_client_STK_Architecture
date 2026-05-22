@@ -5,13 +5,13 @@ import avatarImg from './assets/Avatar.png';
 export default function EndPage({ finalTime, turns, hintsUsed, onRestart, onHome }) {
   const introText = "Félicitations ! Vous avez brillamment complété l'écosystème.";
   const handleShare = async () => {
-    const shareText = `J'ai terminé le jeu STK Architecture en ${finalTime} secondes avec seulement ${hintsUsed || 0} indice(s) utilisé(s) ! 🌿 Peux-tu faire mieux ?`;
+    const shareText = `J'ai terminé le jeu STK CyanoFold en ${finalTime} secondes avec seulement ${hintsUsed || 0} indice(s) utilisé(s) ! 🌿 Peux-tu faire mieux ?`;
 
     // 1. On tente d'abord l'API native (fonctionnera sur mobile en HTTPS)
     if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
       try {
         await navigator.share({
-          title: 'Mon score STK Architecture',
+          title: 'Mon score STK CyanoFold',
           text: shareText,
         });
       } catch (error) {
