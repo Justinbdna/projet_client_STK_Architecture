@@ -436,6 +436,6 @@
     padding: 100px 16px 40px;
   }
   .stk-card {
-    height: 160px;
+    height: auto; /* La proportion aspect-ratio prend le relais */
   }
 }
