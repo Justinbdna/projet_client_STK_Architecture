@@ -60,7 +60,7 @@
   { "id": 40, "type": "archi", "pairId": "os", "name": "Pont optimisé", "image": "/cartes/tour_eiffel.webp", "explanation": "L'optimisation topologique des ponts imite la structure spongieuse de l'os, plaçant la matière uniquement là où s'exercent les forces." },
   
   { "id": 41, "type": "nature", "pairId": "nautile", "name": "Nautile", "image": "/cartes/nautile.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
-  { "id": 42, "type": "archi", "pairId": "nautile", "name": "Pompe hélicoïdale", "image": "/cartes/turbomoteur.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
+  { "id": 42, "type": "archi", "pairId": "nautile", "name": "Pompe hélicoïdale", "image": "/cartes/turbomoteur..webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
   
   { "id": 43, "type": "nature", "pairId": "bardane", "name": "Fleur de Bardane", "image": "/cartes/bardane.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
   { "id": 44, "type": "archi", "pairId": "bardane", "name": "Fixation Velcro", "image": "/cartes/scratch.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." }
