@@ -82,15 +82,18 @@ export default function App() {
       setTurns(prev => prev + 1);
       
       if (first.pairId === second.pairId) {
-        // AJOUT ICI : Jouer le son de succès
         if (!isMuted && successRef.current) successRef.current.play();
         
         setMatchedPairs([...matchedPairs, first.pairId]);
         setModalText(first.explanation);
-        const total = matchedPairs.length + 1;
-        if (total === 7 || total === 14) setCurrentWave(w => w + 1);
-        if (total === 22) setFinalTime(Math.floor((Date.now() - startTime) / 1000));
       } else {
+        // Gestion automatique de la fin de partie
+  useEffect(() => {
+    const isVictory = matchedPairs.length > 0 && matchedPairs.length === cardsData.length / 2;
+    if (isVictory && startTime && !finalTime) {
+      setFinalTime(Math.floor((Date.now() - startTime) / 1000));
+    }
+  }, [matchedPairs, startTime, finalTime]);
         // AJOUT ICI : Jouer le son d'erreur
         if (!isMuted && errorRef.current) errorRef.current.play();
         
@@ -274,6 +277,11 @@ export default function App() {
               onClick={() => {
                 setModalText(null);
                 setSelectedCards([]);
+
+                // On passe à la vague suivante uniquement après la fermeture de la modale 
+                if (matchedPairs.length === 7 && currentWave === 0) {
+                  setCurrentWave(1);
+                }
               }}
             >
               Continuer
