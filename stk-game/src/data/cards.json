@@ -20,11 +20,11 @@
   { "id": 13, "type": "nature", "pairId": "papillon", "name": "Papillon Morpho", "image": "/cartes/papillon_morpho.webp", "explanation": "La structure nanométrique des ailes du papillon Morpho inspire des panneaux solaires plus efficaces et des couleurs sans pigments." },
   { "id": 14, "type": "archi", "pairId": "papillon", "name": "Panneaux solaires", "image": "/cartes/panneaux.webp", "explanation": "La structure nanométrique des ailes du papillon Morpho inspire des panneaux solaires plus efficaces et des couleurs sans pigments." },
   
-  { "id": 15, "type": "nature", "pairId": "orchidee", "name": "Orchidée", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
+  { "id": 15, "type": "nature", "pairId": "orchidee", "name": "Orchidée", "image": "/cartes/orchidee.png", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
   { "id": 16, "type": "archi", "pairId": "orchidee", "name": "Gardens by the Bay", "image": "/cartes/garden_bay.webp", "explanation": "Le plan directeur des Gardens by the Bay s'inspire de la forme de l'orchidée, intégrant une infrastructure environnementale intelligente." },
   
   { "id": 17, "type": "nature", "pairId": "scarabee", "name": "Scarabée de Namibie", "image": "/cartes/coleoptere.webp", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
-  { "id": 18, "type": "archi", "pairId": "scarabee", "name": "Capteurs de brouillard", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
+ { "id": 18, "type": "archi", "pairId": "scarabee", "name": "Capteurs de brouillard", "image": "/cartes/filets.png", "explanation": "Les filets capteurs de brouillard imitent la carapace de ce scarabée pour récolter l'eau potable dans l'air du désert." },
   
   { "id": 19, "type": "nature", "pairId": "araignee", "name": "Toile d'Araignée", "explanation": "Le vitrage Ornilux intègre des motifs UV visibles par les oiseaux pour éviter les collisions, comme le font les toiles d'araignées." },
   { "id": 20, "type": "archi", "pairId": "araignee", "name": "Vitrage anti-collision", "explanation": "Le vitrage Ornilux intègre des motifs UV visibles par les oiseaux pour éviter les collisions, comme le font les toiles d'araignées." },
@@ -63,5 +63,10 @@
   { "id": 42, "type": "archi", "pairId": "nautile", "name": "Pompe hélicoïdale", "image": "/cartes/turbomoteur.webp", "explanation": "La spirale logarithmique de la coquille du nautile inspire le design de ventilateurs et de pompes industrielles ultra-efficaces." },
   
   { "id": 43, "type": "nature", "pairId": "bardane", "name": "Fleur de Bardane", "image": "/cartes/bardane.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
-  { "id": 44, "type": "archi", "pairId": "bardane", "name": "Fixation Velcro", "image": "/cartes/scratch.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." }
+  { "id": 44, "type": "archi", "pairId": "bardane", "name": "Fixation Velcro", "image": "/cartes/scratch.webp", "explanation": "Les crochets microscopiques des graines de bardane, qui s'accrochent aux poils d'animaux, ont directement inspiré l'invention du Velcro." },
+  { "id": 45, "type": "nature", "pairId": "moule", "name": "Moule", "image": "/cartes/moule.png", "explanation": "La moule se fixe sur n'importe quelle surface, même métallique, sous l'eau. Cette propriété a inspiré des chercheurs pour créer des colles bio-inspirées ultra-puissantes." },
+  { "id": 46, "type": "archi", "pairId": "moule", "name": "Colle forte", "image": "/cartes/colle.webp", "explanation": "La moule se fixe sur n'importe quelle surface, même métallique, sous l'eau. Cette propriété a inspiré des chercheurs pour créer des colles bio-inspirées ultra-puissantes." },
+
+  { "id": 47, "type": "nature", "pairId": "cicatrice", "name": "Cicatrice", "image": "/cartes/cicatrice.webp", "explanation": "La cicatrisation de la peau a inspiré le béton autocicatrisant : des bactéries encapsulées se réveillent au contact de l'eau dans une fissure et produisent du carbonate de calcium pour la colmater." },
+  { "id": 48, "type": "archi", "pairId": "cicatrice", "name": "Béton autocicatrisant", "image": "/cartes/beton.png", "explanation": "La cicatrisation de la peau a inspiré le béton autocicatrisant : des bactéries encapsulées se réveillent au contact de l'eau dans une fissure et produisent du carbonate de calcium pour la colmater." }
 ]
