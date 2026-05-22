@@ -5,13 +5,19 @@
 /* --- PLATEAU DE JEU (BOARD) --- */
 .stk-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); 
-  gap: 20px; 
-  justify-content: center;
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 200px 24px 40px;
+  grid-template-rows: repeat(2, 250px); /* 2 lignes fixes de hauteur zoomée */
+  grid-auto-flow: column;
+  grid-auto-columns: 185px; /* Largeur confortable pour les visuels */
+  gap: 24px; 
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 10px;
+  width: 100%;
   box-sizing: border-box;
+}
+/* On masque la scrollbar système disgracieuse pour garder un look épuré */
+.stk-board::-webkit-scrollbar {
+  display: none;
 }
 
 .stk-side {
@@ -444,4 +450,41 @@
     padding: 10px 20px !important;
     font-size: 0.85rem !important;
   }
+  .stk-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 120px 4vw 40px;
+  box-sizing: border-box;
+}
+
+.stk-arrow {
+  background: #2c4c3b;
+  color: #f6f2ec;
+  border: none;
+  font-size: 2.2rem;
+  line-height: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(44, 76, 59, 0.2);
+  flex-shrink: 0;
+}
+
+.stk-arrow:hover {
+  background: #223b2e;
+  transform: scale(1.1);
+}
+
+.stk-arrow.left { margin-right: 15px; padding-right: 4px; }
+.stk-arrow.right { margin-left: 15px; padding-left: 4px; }
 }

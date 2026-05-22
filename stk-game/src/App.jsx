@@ -36,6 +36,7 @@ export default function App() {
   const [hintedCards, setHintedCards] = useState([]);
   const windRef = useRef(null);
   const rainRef = useRef(null);
+  const boardRef = useRef(null);
   const [activeTrack, setActiveTrack] = useState("birds"); // "birds" | "wind" | "rain"
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -233,11 +234,15 @@ export default function App() {
           <div style={{ width: '100%', textAlign: 'center', marginTop: '-60px', zIndex: 10, position: 'relative' }}>
             <button className="stk-button" onClick={triggerHint} style={{ background: '#d4af37', color: '#222121' }}>💡 Indice</button>
           </div>
-          <main className="stk-board">
-            {shuffledCards[currentWave]?.map((c, i) => (
-              <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} isHinted={hintedCards.includes(c.id)} index={i} />
-            ))}
-          </main>
+          <div className="stk-slider-wrapper">
+            <button className="stk-arrow left" onClick={() => boardRef.current?.scrollBy({ left: -320, behavior: 'smooth' })}>‹</button>
+            <main className="stk-board" ref={boardRef}>
+              {shuffledCards[currentWave]?.map((c, i) => (
+                <Card key={c.id} card={c} onClick={handleCardClick} isSelected={selectedCards.some(s => s.id === c.id)} isMatched={matchedPairs.includes(c.pairId)} isHinted={hintedCards.includes(c.id)} index={i} />
+              ))}
+            </main>
+            <button className="stk-arrow right" onClick={() => boardRef.current?.scrollBy({ left: 320, behavior: 'smooth' })}>›</button>
+          </div>
         </>
       )}
 
